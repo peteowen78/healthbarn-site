@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Health Barn — Complementary Therapies in Askham, Lake District</title>
+<meta name="description" content="A hub for complementary therapies in Askham, Penrith, Cumbria — chiropractic, reflexology, massage, floatation therapy, breathwork, reiki and more, inside the Lake District National Park.">
+<link rel="icon" type="image/svg+xml" href="LogoElements/HB-Logo-IconCircle.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN TOKENS — the whole palette & type system lives here.
+   Change these few lines and the entire site re-themes.
+   ============================================================ */
+:root{
+  --limewash:#F0EEE5;   /* warm plaster white — main background */
+  --stone:#E5E2D5;      /* slightly deeper stone for alt sections */
+  --slate:#2B322C;      /* deep fell green-grey — dark sections   */
+  --moss:#556249;       /* primary accent — buttons, links        */
+  --moss-deep:#3E4A38;
+  --tarn:#7FA0A2;       /* reserved for floatation only           */
+  --tarn-deep:#4E6E71;
+  --ink:#242A22;        /* body text                              */
+  --ink-soft:#5C6156;   /* secondary text                         */
+  --line:#D7D3C3;       /* hairline rules                         */
+  --display:'Fraunces',serif;
+  --body:'Karla',sans-serif;
+  --max:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--limewash);
+     font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--moss);text-decoration:none}
+a:hover{color:var(--moss-deep)}
+:focus-visible{outline:2px solid var(--moss);outline-offset:3px;border-radius:2px}
+/* Headings and <main> are given tabindex="-1" purely so screen readers announce
+   the new page after a route change. They are not interactive, so they must not
+   paint a focus ring — links, buttons and fields keep theirs. */
+[tabindex="-1"]:focus,[tabindex="-1"]:focus-visible{outline:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;top:-100px;left:0;z-index:100;background:var(--moss);color:#F4F2E8;
+  padding:.8rem 1.4rem;border-radius:0 0 10px 0;font-weight:700;transition:top .2s}
+.skip:focus{top:0;color:#F4F2E8}
+[id]{scroll-margin-top:90px}
+
+/* ---------- type scale ---------- */
+h1,h2,h3,.display{font-family:var(--display);font-weight:390;line-height:1.08;
+  letter-spacing:-0.01em;color:inherit}
+h1{font-size:clamp(2.6rem,6.5vw,4.8rem)}
+h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:.5em}
+h3{font-size:1.35rem;font-weight:450;line-height:1.25}
+.eyebrow{font-family:var(--body);font-size:.78rem;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--moss);
+  display:block;margin-bottom:1.1rem}
+.dark .eyebrow{color:var(--tarn)}
+.lede{font-size:1.18rem;color:var(--ink-soft);max-width:38em}
+.dark .lede{color:#B9BFB3}
+.dark a:not(.btn){color:#B9BFB3;text-decoration:underline;text-underline-offset:3px}
+.dark a:not(.btn):hover{color:#fff}
+.dark a.crumb{text-decoration:none}
+
+/* ---------- layout primitives ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+.section{padding:clamp(4rem,9vw,7.5rem) 0}
+.section--tight{padding:clamp(3rem,6vw,4.5rem) 0}
+.section--stone{background:var(--stone)}
+.dark{background:var(--slate);color:#EDEBDF}
+.grid{display:grid;gap:clamp(1.2rem,2.5vw,2rem)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-block;font-family:var(--body);font-weight:700;font-size:.92rem;
+  letter-spacing:.04em;padding:.9rem 1.9rem;border-radius:100px;cursor:pointer;
+  border:1.5px solid transparent;transition:all .22s ease}
+.btn--solid{background:var(--moss);color:#F4F2E8}
+.btn--solid:hover{background:var(--moss-deep);color:#fff;transform:translateY(-1px)}
+.btn--ghost{border-color:var(--moss);color:var(--moss)}
+.btn--ghost:hover{background:var(--moss);color:#F4F2E8}
+.dark .btn--ghost{border-color:#8B9682;color:#DCE0D2}
+.dark .btn--ghost:hover{background:#DCE0D2;color:var(--slate)}
+.btn--tarn{background:var(--tarn-deep);color:#EFF4F2}
+.btn--tarn:hover{background:#3C585B;color:#fff}
+.btn-row{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:2.2rem}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;
+  background:color-mix(in srgb,var(--limewash) 88%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:var(--display);font-size:1.25rem;font-weight:500;color:var(--ink);
+  display:flex;align-items:center;gap:.6rem}
+.brand-logo{height:20px;width:auto;flex:none;color:var(--ink)}
+.brand-word{height:23px;width:auto;flex:none;color:var(--ink)}
+@media(max-width:480px){.brand-word{height:17px}}
+.foot-logo{height:36px;width:auto;color:#EDEBDF;display:block;margin-bottom:1.1rem}
+.foot-word{height:19px;width:auto;color:#EDEBDF;display:block;margin-bottom:1rem}
+.nav-links{display:flex;gap:1.6rem;align-items:center;font-size:.92rem;font-weight:600}
+.nav-links a{color:var(--ink-soft)}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav .btn{padding:.6rem 1.3rem;font-size:.84rem}
+.nav-links a.btn--solid{color:#F4F2E8}
+.nav-links a.btn--solid:hover{color:#fff}
+.nav-utils{display:none}
+.nav-phone{display:flex;align-items:center;justify-content:center;width:42px;height:42px;
+  border-radius:50%;border:1.5px solid var(--moss);color:var(--moss)}
+.menu-btn{display:none;background:none;border:none;font-size:1.6rem;color:var(--ink);cursor:pointer;
+  width:44px;height:44px;line-height:1}
+@media(max-width:1060px){
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;
+    background:var(--limewash);flex-direction:column;padding:1.6rem 0 2rem;
+    gap:.4rem;border-bottom:1px solid var(--line)}
+  .nav-links a{padding:.55rem 1rem}
+  .nav-links.open{display:flex}
+  .nav-utils{display:flex;align-items:center;gap:.5rem}
+  .menu-btn{display:block}
+}
+
+/* ---------- hero + the breathing mark (signature element) ---------- */
+.hero{min-height:92svh;display:flex;align-items:center;position:relative;
+  overflow:hidden;padding-top:72px}
+.hero>.wrap{width:100%}
+.hero-inner{position:relative;z-index:2;max-width:640px}
+.hero-bg{position:absolute;inset:0;z-index:0;margin:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(100deg,
+    color-mix(in srgb,var(--limewash) 97%,transparent) 0%,
+    color-mix(in srgb,var(--limewash) 93%,transparent) 42%,
+    color-mix(in srgb,var(--limewash) 62%,transparent) 72%,
+    color-mix(in srgb,var(--limewash) 34%,transparent) 100%)}
+@media(max-width:760px){
+  .hero-bg::after{background:color-mix(in srgb,var(--limewash) 88%,transparent)}
+}
+.breath{position:absolute;right:clamp(-160px,-4vw,40px);top:50%;
+  transform:translateY(-50%);width:min(56vw,620px);aspect-ratio:1;z-index:1;
+  pointer-events:none}
+.breath span{position:absolute;inset:0;border-radius:50%;
+  animation:breathe 10s ease-in-out infinite}
+.breath span:nth-child(1){background:radial-gradient(circle,
+  color-mix(in srgb,var(--tarn) 26%,transparent) 0%,transparent 68%)}
+.breath span:nth-child(2){inset:12%;border:1px solid color-mix(in srgb,var(--moss) 32%,transparent);
+  animation-delay:-.6s}
+.breath span:nth-child(3){inset:26%;border:1px solid color-mix(in srgb,var(--moss) 20%,transparent);
+  animation-delay:-1.2s}
+.breath-photo{position:absolute;inset:22%;border-radius:50%;overflow:hidden;
+  box-shadow:0 30px 70px -30px rgba(43,50,44,.45)}
+.breath-photo img{width:100%;height:100%;object-fit:cover}
+@keyframes breathe{0%,100%{transform:scale(.94)}50%{transform:scale(1.06)}}
+@media(prefers-reduced-motion:reduce){
+  .breath span{animation:none}
+  *{transition:none!important;animation:none!important}
+}
+@media(max-width:1060px){
+  .breath{opacity:.35}
+}
+@media(max-width:760px){
+  .breath{opacity:.3;right:-40vw;width:110vw}
+}
+
+/* ---------- ticker ---------- */
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:.75rem 0;background:var(--stone)}
+.ticker-track{display:flex;gap:3rem;white-space:nowrap;width:max-content;
+  animation:tick 40s linear infinite;font-size:.82rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- brand LineMountains drawing, used as the GROUND of a section ----
+   The artwork is masked rather than placed as an image, so the line colour
+   comes from the palette tokens instead of the colour baked into the file. --- */
+.range{position:relative;overflow:hidden}
+.range>*{position:relative;z-index:2}
+.range::after{content:'';position:absolute;left:0;right:0;bottom:-9%;
+  height:clamp(240px,36vw,500px);z-index:1;pointer-events:none;
+  background:var(--moss);opacity:.42;
+  -webkit-mask:url("LogoElements/LineMountains1/LineMountains1.svg") no-repeat center bottom/102% auto;
+  mask:url("LogoElements/LineMountains1/LineMountains1.svg") no-repeat center bottom/102% auto}
+/* on the dark footer the same drawing runs in a pale tone */
+.range--dark::after{background:#C9CEC0;opacity:.34;bottom:-8%;
+  height:clamp(190px,24vw,320px)}
+
+/* ---------- cards ---------- */
+.card{background:var(--limewash);border:1px solid var(--line);border-radius:18px;
+  padding:1.8rem;transition:transform .25s ease,box-shadow .25s ease;
+  display:flex;flex-direction:column;gap:.7rem}
+a.card{color:var(--ink)}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px -18px rgba(43,50,44,.35)}
+.card h3{margin-bottom:.1rem}
+.card p{color:var(--ink-soft);font-size:.96rem}
+.card .go{margin-top:auto;font-weight:700;font-size:.86rem;letter-spacing:.05em;
+  color:var(--moss)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--moss);background:color-mix(in srgb,var(--moss) 12%,transparent);
+  padding:.28rem .7rem;border-radius:100px;width:max-content}
+.tag--tarn{color:var(--tarn-deep);background:color-mix(in srgb,var(--tarn) 22%,transparent)}
+
+/* ---------- photos ---------- */
+.photo{border-radius:18px;overflow:hidden;position:relative;background:var(--stone)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo--tall{aspect-ratio:4/5}
+.photo--wide{aspect-ratio:16/10}
+.photo--sq{aspect-ratio:1}
+.photo figcaption{position:absolute;bottom:0;left:0;right:0;font-size:.78rem;
+  color:#fff;background:linear-gradient(transparent,rgba(30,35,28,.65));
+  padding:1.6rem 1rem .7rem}
+.avatar{width:100%;aspect-ratio:1;border-radius:18px 18px 0 0;overflow:hidden;
+  background:var(--stone);margin:-1.8rem -1.8rem 1rem;width:calc(100% + 3.6rem)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar--initials{display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:3rem;color:var(--moss);
+  background:linear-gradient(150deg,#C9C6B4,#9AA391)}
+
+/* ---------- lists / accordion / prices ---------- */
+.index-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:1.3rem 0;border-bottom:1px solid var(--line);color:var(--ink)}
+.index-row:hover h3{color:var(--moss)}
+.index-row .meta{font-size:.85rem;color:var(--ink-soft);text-align:right;flex:none}
+@media(max-width:600px){
+  .index-row{flex-direction:column;align-items:flex-start;gap:.35rem}
+  .index-row .meta{text-align:left}
+}
+.price-row{display:flex;justify-content:space-between;gap:1.5rem;padding:.95rem 0;
+  border-bottom:1px solid var(--line)}
+.price-row div:first-child{max-width:34em}
+.price-row .amount{font-family:var(--display);font-size:1.1rem;flex:none;text-align:right}
+.price-note{font-size:.9rem;color:var(--ink-soft);margin-top:1.4rem;max-width:70ch}
+details.acc{border:1px solid var(--line);border-radius:14px;background:var(--limewash);
+  margin-bottom:.9rem;overflow:hidden}
+details.acc summary{cursor:pointer;list-style:none;padding:1.15rem 1.4rem;
+  font-family:var(--display);font-size:1.15rem;display:flex;justify-content:space-between;
+  align-items:center;gap:1rem}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:'+';font-family:var(--body);font-weight:400;
+  font-size:1.4rem;color:var(--moss);transition:transform .2s ease}
+details.acc[open] summary::after{transform:rotate(45deg)}
+details.acc .acc-body{padding:0 1.4rem 1.3rem;color:var(--ink-soft);font-size:.98rem}
+details.acc .acc-body p{margin-bottom:.8em;max-width:70ch}
+details.acc .acc-body .price-row{font-size:.95rem}
+
+/* ---------- detail pages ---------- */
+.page-head{padding:calc(72px + clamp(3.5rem,8vw,6rem)) 0 clamp(2.5rem,5vw,4rem)}
+.crumb{font-size:.82rem;font-weight:700;letter-spacing:.08em;margin-bottom:1.4rem;display:block}
+.detail-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(2rem,5vw,4.5rem)}
+@media(max-width:860px){.detail-grid{grid-template-columns:1fr}}
+.aside{border:1px solid var(--line);border-radius:18px;padding:1.7rem;
+  height:max-content;background:var(--stone)}
+.aside dt{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);margin-top:1.1rem}
+.aside dt:first-child{margin-top:0}
+.aside dd{font-size:1rem;margin-top:.2rem}
+.book-note{font-size:.84rem;color:var(--ink-soft);margin-top:.9rem}
+.book-bar{position:fixed;bottom:0;left:0;right:0;z-index:45;display:none;align-items:center;
+  justify-content:space-between;gap:1rem;
+  padding:.65rem clamp(1.2rem,4vw,3rem) calc(.65rem + env(safe-area-inset-bottom));
+  background:color-mix(in srgb,var(--limewash) 92%,transparent);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.book-bar .bb-price{font-family:var(--display);font-size:1.02rem;line-height:1.25}
+.book-bar .bb-price small{display:block;font-family:var(--body);font-size:.74rem;color:var(--ink-soft)}
+.book-bar .btn{padding:.65rem 1.4rem;font-size:.86rem;flex:none}
+@media(max-width:860px){
+  .book-bar{display:flex}
+  body.has-bookbar footer{padding-bottom:6rem}
+}
+.prose p{margin-bottom:1.1em;max-width:44em}
+.prose h3{margin:1.8em 0 .5em}
+.prose ul{margin:0 0 1.1em 1.2em;max-width:44em}
+.prose li{margin-bottom:.35em}
+.prose blockquote{border-left:1px solid var(--line);padding-left:1.2rem;
+  color:var(--ink-soft);margin:0 0 1.1em;font-style:italic}
+
+/* ---------- footer ---------- */
+footer{background:var(--slate);color:#C9CEC0;padding:4.5rem 0 2.5rem;font-size:.95rem}
+footer .grid{margin-bottom:3rem}
+footer h3{font-family:var(--display);font-weight:450;font-size:1.05rem;color:#EDEBDF;
+  margin-bottom:1rem}
+.amount-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.9rem;max-width:760px}
+@media(max-width:700px){.amount-grid{grid-template-columns:repeat(3,1fr)}}
+.amount-chip{border:1px solid var(--line);border-radius:14px;padding:1.45rem .6rem;
+  text-align:center;font-family:var(--display);font-size:1.6rem;background:var(--limewash)}
+footer a{color:#C9CEC0;display:block;padding:.18rem 0}
+footer a:hover{color:#fff}
+.foot-bottom{border-top:1px solid #454E44;padding-top:1.6rem;display:flex;
+  justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem;color:#8C9483}
+
+/* ---------- page transitions ---------- */
+#app{animation:pagein .45s ease}
+@keyframes pagein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#app" id="skipLink">Skip to content</a>
+
+<!-- ============ NAVIGATION (fixed, shared across all pages) ============ -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="#/" class="brand"><svg class="brand-logo" viewBox="0 0 275.8 188.1" aria-hidden="true"><path fill="currentColor" d="M261,112.4c-3.4-5.9-7.8-10.4-13.1-13.6-5.3-3.2-10.9-5-16.7-5.3v-1.6c5.3-1.3,10.1-3.4,14.4-6.3,4.3-2.9,7.7-6.7,10.3-11.5,2.6-4.7,3.8-10.4,3.8-17s-2-15.3-5.9-21.7c-3.9-6.4-9.8-11.4-17.6-15.1-7.9-3.7-17.7-5.5-29.5-5.5h-62.6v67.7h-68.7V14.7h-27.2v67.7H12.9v24.5h35.3v71.3h27.2v-71.3h68.7v71.3h66.2c12.5,0,22.9-1.9,31.1-5.8,8.2-3.9,14.4-9.2,18.5-15.9,4.1-6.7,6.1-14.3,6.1-22.8s-1.7-15.4-5.1-21.2ZM173.8,39.1h29.9c8.7,0,15.3,2,19.8,6.1,4.4,4.1,6.7,9.3,6.7,15.6s-1.2,8.9-3.6,12.4c-2.4,3.5-5.6,6.2-9.7,8.1-4.1,1.9-8.7,2.8-13.8,2.8h-29.3v-45.1ZM228.9,147.3c-4.8,4.1-12.5,6.2-23.3,6.2h-31.9v-47.9h32.6c6.1,0,11.4,1.1,15.8,3.4,4.4,2.3,7.8,5.3,10.2,9.3,2.4,3.9,3.6,8.3,3.6,13.1s-2.4,11.8-7.1,15.9Z"/></svg><svg class="brand-word" viewBox="0 0 672.6 66.1" fill="currentColor" aria-hidden="true"><path d="M15.5,18.5v-4.2h29.6v4.2h-12.4v35.2h-4.8V18.5h-12.4Z"/><path d="M63.4,53.7V14.2h4.8v17.6h21.1V14.2h4.8v39.5h-4.8v-17.7h-21.1v17.7h-4.8Z"/><path d="M114.4,53.7V14.2h23.8v4.2h-19v13.3h17.8v4.2h-17.8v13.4h19.4v4.2h-24.1Z"/><polygon points="209.7 14.2 209.7 31.8 188.6 31.8 188.6 14.2 183.9 14.2 183.9 31.8 175.4 31.8 175.4 36.1 183.9 36.1 183.9 53.7 188.6 53.7 188.6 36.1 209.7 36.1 209.7 53.7 214.5 53.7 214.5 14.2 209.7 14.2"/><path d="M234.9,53.7V14.2h23.8v4.2h-19v13.3h17.8v4.2h-17.8v13.4h19.4v4.2h-24.1Z"/><path d="M279.8,53.7h-5l14.5-39.5h4.9l14.5,39.5h-5l-11.8-33.2h-.3l-11.8,33.2ZM281.7,38.3h20.2v4.2h-20.2v-4.2Z"/><path d="M325.8,53.7V14.2h4.8v35.2h18.4v4.2h-23.1Z"/><path d="M359.8,18.5v-4.2h29.6v4.2h-12.4v35.2h-4.8V18.5h-12.4Z"/><path d="M407.6,53.7V14.2h4.8v17.6h21.1V14.2h4.8v39.5h-4.8v-17.7h-21.1v17.7h-4.8Z"/><path d="M484.8,53.7V14.2h13.8c2.7,0,5,.5,6.8,1.4,1.8.9,3.1,2.2,4,3.8.9,1.6,1.3,3.3,1.3,5.3s-.3,3.1-.9,4.2c-.6,1.1-1.4,2-2.4,2.6-1,.6-2,1.1-3.2,1.4v.4c1.2,0,2.4.5,3.6,1.3,1.2.8,2.2,1.9,3.1,3.3.8,1.4,1.2,3.2,1.2,5.3s-.5,3.8-1.4,5.3c-.9,1.6-2.3,2.8-4.3,3.8-1.9.9-4.5,1.4-7.6,1.4h-14.3ZM489.6,31.6h8.9c1.4,0,2.7-.3,3.9-.8s2.1-1.4,2.8-2.4c.7-1,1-2.2,1-3.6s-.6-3.2-1.8-4.4c-1.2-1.2-3.1-1.8-5.7-1.8h-9v13.1ZM489.6,49.5h9.5c3.1,0,5.3-.6,6.7-1.8,1.3-1.2,2-2.7,2-4.4s-.3-2.6-1-3.7c-.7-1.1-1.7-2-2.9-2.7-1.3-.7-2.8-1-4.5-1h-9.7v13.7Z"/><path d="M532.6,53.7h-5l14.5-39.5h4.9l14.5,39.5h-5l-11.8-33.2h-.3l-11.8,33.2ZM534.4,38.3h20.2v4.2h-20.2v-4.2Z"/><path d="M578.5,53.7V14.2h13.3c3.1,0,5.6.5,7.6,1.6s3.4,2.5,4.4,4.3,1.4,3.9,1.4,6.2-.5,4.4-1.4,6.2c-1,1.8-2.4,3.2-4.4,4.2-2,1-4.5,1.5-7.5,1.5h-10.8v-4.3h10.6c2.1,0,3.8-.3,5.1-.9s2.2-1.5,2.8-2.6c.6-1.1.9-2.5.9-4.1s-.3-3-.9-4.1c-.6-1.2-1.5-2.1-2.8-2.7-1.3-.6-3-1-5.1-1h-8.4v35.2h-4.8ZM597.1,36l9.7,17.7h-5.6l-9.6-17.7h5.4Z"/><path d="M655.4,14.2v39.5h-4.6l-21.5-31h-.4v31h-4.8V14.2h4.6l21.6,31.1h.4V14.2h4.7Z"/></svg><span class="sr-only">The Health Barn</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#/treatments" data-nav="treatments">Treatments</a>
+      <a href="#/practitioners" data-nav="practitioners">Practitioners</a>
+      <a href="#/the-loft" data-nav="the-loft">The Loft</a>
+      <a href="#/price-list" data-nav="price-list">Price List</a>
+      <a href="#/gift-vouchers" data-nav="gift-vouchers">Gift Vouchers</a>
+      <a href="#/contact" data-nav="contact">Contact</a>
+      <a class="btn btn--solid" href="https://thehealthbarn.janeapp.co.uk/" target="_blank" rel="noopener">Book online ↗</a>
+    </div>
+    <div class="nav-utils">
+      <a class="nav-phone" href="tel:01931712300" aria-label="Call The Health Barn — 01931 712300">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ PAGE CONTENT renders here via the router ============ -->
+<main id="app" tabindex="-1"></main>
+
+<!-- ============ FOOTER (shared) ============ -->
+<footer class="range range--dark">
+  <div class="wrap">
+    <div class="grid g4">
+      <div>
+        <svg class="foot-logo" viewBox="0 0 275.8 188.1" aria-hidden="true"><path fill="currentColor" d="M261,112.4c-3.4-5.9-7.8-10.4-13.1-13.6-5.3-3.2-10.9-5-16.7-5.3v-1.6c5.3-1.3,10.1-3.4,14.4-6.3,4.3-2.9,7.7-6.7,10.3-11.5,2.6-4.7,3.8-10.4,3.8-17s-2-15.3-5.9-21.7c-3.9-6.4-9.8-11.4-17.6-15.1-7.9-3.7-17.7-5.5-29.5-5.5h-62.6v67.7h-68.7V14.7h-27.2v67.7H12.9v24.5h35.3v71.3h27.2v-71.3h68.7v71.3h66.2c12.5,0,22.9-1.9,31.1-5.8,8.2-3.9,14.4-9.2,18.5-15.9,4.1-6.7,6.1-14.3,6.1-22.8s-1.7-15.4-5.1-21.2ZM173.8,39.1h29.9c8.7,0,15.3,2,19.8,6.1,4.4,4.1,6.7,9.3,6.7,15.6s-1.2,8.9-3.6,12.4c-2.4,3.5-5.6,6.2-9.7,8.1-4.1,1.9-8.7,2.8-13.8,2.8h-29.3v-45.1ZM228.9,147.3c-4.8,4.1-12.5,6.2-23.3,6.2h-31.9v-47.9h32.6c6.1,0,11.4,1.1,15.8,3.4,4.4,2.3,7.8,5.3,10.2,9.3,2.4,3.9,3.6,8.3,3.6,13.1s-2.4,11.8-7.1,15.9Z"/></svg>
+        <h3 class="sr-only">The Health Barn</h3>
+        <svg class="foot-word" viewBox="0 0 672.6 66.1" fill="currentColor" aria-hidden="true"><path d="M15.5,18.5v-4.2h29.6v4.2h-12.4v35.2h-4.8V18.5h-12.4Z"/><path d="M63.4,53.7V14.2h4.8v17.6h21.1V14.2h4.8v39.5h-4.8v-17.7h-21.1v17.7h-4.8Z"/><path d="M114.4,53.7V14.2h23.8v4.2h-19v13.3h17.8v4.2h-17.8v13.4h19.4v4.2h-24.1Z"/><polygon points="209.7 14.2 209.7 31.8 188.6 31.8 188.6 14.2 183.9 14.2 183.9 31.8 175.4 31.8 175.4 36.1 183.9 36.1 183.9 53.7 188.6 53.7 188.6 36.1 209.7 36.1 209.7 53.7 214.5 53.7 214.5 14.2 209.7 14.2"/><path d="M234.9,53.7V14.2h23.8v4.2h-19v13.3h17.8v4.2h-17.8v13.4h19.4v4.2h-24.1Z"/><path d="M279.8,53.7h-5l14.5-39.5h4.9l14.5,39.5h-5l-11.8-33.2h-.3l-11.8,33.2ZM281.7,38.3h20.2v4.2h-20.2v-4.2Z"/><path d="M325.8,53.7V14.2h4.8v35.2h18.4v4.2h-23.1Z"/><path d="M359.8,18.5v-4.2h29.6v4.2h-12.4v35.2h-4.8V18.5h-12.4Z"/><path d="M407.6,53.7V14.2h4.8v17.6h21.1V14.2h4.8v39.5h-4.8v-17.7h-21.1v17.7h-4.8Z"/><path d="M484.8,53.7V14.2h13.8c2.7,0,5,.5,6.8,1.4,1.8.9,3.1,2.2,4,3.8.9,1.6,1.3,3.3,1.3,5.3s-.3,3.1-.9,4.2c-.6,1.1-1.4,2-2.4,2.6-1,.6-2,1.1-3.2,1.4v.4c1.2,0,2.4.5,3.6,1.3,1.2.8,2.2,1.9,3.1,3.3.8,1.4,1.2,3.2,1.2,5.3s-.5,3.8-1.4,5.3c-.9,1.6-2.3,2.8-4.3,3.8-1.9.9-4.5,1.4-7.6,1.4h-14.3ZM489.6,31.6h8.9c1.4,0,2.7-.3,3.9-.8s2.1-1.4,2.8-2.4c.7-1,1-2.2,1-3.6s-.6-3.2-1.8-4.4c-1.2-1.2-3.1-1.8-5.7-1.8h-9v13.1ZM489.6,49.5h9.5c3.1,0,5.3-.6,6.7-1.8,1.3-1.2,2-2.7,2-4.4s-.3-2.6-1-3.7c-.7-1.1-1.7-2-2.9-2.7-1.3-.7-2.8-1-4.5-1h-9.7v13.7Z"/><path d="M532.6,53.7h-5l14.5-39.5h4.9l14.5,39.5h-5l-11.8-33.2h-.3l-11.8,33.2ZM534.4,38.3h20.2v4.2h-20.2v-4.2Z"/><path d="M578.5,53.7V14.2h13.3c3.1,0,5.6.5,7.6,1.6s3.4,2.5,4.4,4.3,1.4,3.9,1.4,6.2-.5,4.4-1.4,6.2c-1,1.8-2.4,3.2-4.4,4.2-2,1-4.5,1.5-7.5,1.5h-10.8v-4.3h10.6c2.1,0,3.8-.3,5.1-.9s2.2-1.5,2.8-2.6c.6-1.1.9-2.5.9-4.1s-.3-3-.9-4.1c-.6-1.2-1.5-2.1-2.8-2.7-1.3-.6-3-1-5.1-1h-8.4v35.2h-4.8ZM597.1,36l9.7,17.7h-5.6l-9.6-17.7h5.4Z"/><path d="M655.4,14.2v39.5h-4.6l-21.5-31h-.4v31h-4.8V14.2h4.6l21.6,31.1h.4V14.2h4.7Z"/></svg>
+        <p style="max-width:24em;color:#9AA290">A hub of complementary therapies in Askham, five miles south of Penrith, inside the Lake District National Park.</p>
+        <p style="margin-top:1rem;color:#9AA290">Askham, Penrith, Cumbria, CA10 2PG<br>
+        <a href="https://what3words.com/gathering.believer.hazelnuts" target="_blank" rel="noopener" style="display:inline">///gathering.believer.hazelnuts</a></p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="#/treatments">All treatments</a>
+        <a href="#/treatments/floatation-therapy">Floatation therapy</a>
+        <a href="#/treatments/pamper-packages">Pamper packages</a>
+        <a href="#/the-loft">The Loft — classes &amp; events</a>
+        <a href="#/the-loft#training">Reflexology training</a>
+        <a href="#/our-story">Our story</a>
+      </div>
+      <div>
+        <h3>Practical</h3>
+        <a href="#/price-list">Price list</a>
+        <a href="#/gift-vouchers">Gift vouchers</a>
+        <a href="#/practitioners">Our practitioners</a>
+        <a href="#/useful-links">Useful links</a>
+        <a href="#/terms-policies">Terms &amp; policies</a>
+        <a href="#/privacy">Privacy statement</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="tel:01931712300">01931 712 300</a>
+        <a href="mailto:info@thehealthbarn.co.uk">info@thehealthbarn.co.uk</a>
+        <a href="https://thehealthbarn.janeapp.co.uk/" target="_blank" rel="noopener">Online booking ↗</a>
+        <a href="https://www.instagram.com/the_health_barn" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://www.facebook.com/thehealthbarninaskham" target="_blank" rel="noopener">Facebook ↗</a>
+        <p style="margin-top:.8rem;color:#9AA290;font-size:.88rem">Open Mon–Fri 9am–5pm · Sun 1pm–5pm<br>Reception Mon–Fri 9am–4pm</p>
+      </div>
+    </div>
+    <div class="foot-bottom" style="margin-top:clamp(6rem,14vw,10rem)">
+      <span>© The Health Barn, Askham, Penrith, Cumbria, CA10 2PG</span>
+      <span>Booking powered by JaneApp</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   DATA — the "CMS" of the site. Every treatment and practitioner lives
+   in these lists; the page templates below read from them.
+   All copy is the real site copy (scraped 2 July 2026), with the known
+   typos and broken links fixed — see BUILD-NOTES.md.
+   ===================================================================== */
+if("scrollRestoration" in history) history.scrollRestoration = "manual";
+const BOOK = "https://thehealthbarn.janeapp.co.uk/";
+/* Photography is served from this project, not the old Squarespace CDN.
+   Full-resolution originals of every image on the old site live in
+   assets/library/ — see IMAGES.md. */
+const img  = (path)=>`assets/img/${path}`;
+
+const TREATMENTS = [
+/* ---------------- Signature ---------------- */
+{slug:"floatation-therapy", name:"Floatation Therapy", group:"Signature", tarn:true,
+ blurb:"Deep rest and effortless relaxation in the only floatation tank in Cumbria — an i-sopod in its own private, heated room.",
+ photo:"9EB11453-775D-4482-9F2A-2F479EFD2928.JPG",
+ price:"£50 per session · 3-float package £135", duration:"60 min float · allow 90 min",
+ book:BOOK+"#/discipline/8",
+ detail:`
+ <p>Floating therapy is an incredible means of stress and pain relief, muscular relaxation and the ultimate in peace and tranquillity. It offers you the chance to regain physical, emotional and psychological health along with regaining a good sleep pattern.</p>
+ <p>Our <a href="https://www.i-sopod.com/i-sopod/what-is-a-floatation-tank" target="_blank" rel="noopener">i-sopod floatation tank</a> is located in a private heated room with shower facilities — the first floatation therapy available in Cumbria since 2010.</p>
+ <h3>Floatation is of benefit to us all</h3>
+ <ul>
+  <li><strong>Sports people:</strong> deep muscular relaxation, enhancement of performance using visualisation, which accelerates the healing progress of any injuries.</li>
+  <li><strong>Business people:</strong> complete physical and mental de-stressing, rejuvenates energy levels and enhances creativity.</li>
+  <li><strong>Students:</strong> stimulates creativity and promotes clarity of the thought process.</li>
+  <li><strong>Long-term illness:</strong> allowing the body to relax helps ease muscular aches and pains, thereby promoting the body's innate healing ability.</li>
+ </ul>
+ <h3>What to expect</h3>
+ <p>Before arrival you will be asked to complete an online Safe Floating form.</p>
+ <p>Please allow 90 minutes from your appointment time — 10 minutes for your pre-float briefing and a chance to ask questions; 5 minutes to change and shower before your float; 60 minutes in the floatation tank; and finally 15 minutes to shower again, change and relax before leaving. (If you would like a longer float, please ask!)</p>
+ <p>You have the option of floating with the lid down for optimal sensory deprivation, or leaving the lid up if you are unsure and want to gradually build your confidence — you have control of this. The same goes for the lights in the tank: you decide, on or off.</p>
+ <p>There will be 10 minutes of relaxing music at the start of your float and 5 minutes to signal the end. (Should you prefer no music, or music throughout, please mention this on arrival.)</p>
+ <p>The concentrated Epsom salts water is heated to body temperature; when you are fully relaxed it is virtually impossible to distinguish between the parts of the body in contact with the water and those that aren't — creating the illusion of floating in air. It's not uncommon to fall asleep!</p>
+ <p>The idea is to float naked so nothing comes between you and the experience, though you may wear a costume if you prefer. If you wish, bring your own towels and shower products — we also provide these.</p>
+ <h3>Pricing</h3>
+ <p><strong>£50 per session.</strong> <strong>3 Float Package £135</strong> — same person, within 3 months of your first session. Research shows an accumulative benefit to having your first three floats within a six-week period and we recommend this, but the package allows flexibility. Book your first session online; the second and third after your first float, or by phone or email.</p>`},
+
+/* ---------------- Clinical care ---------------- */
+{slug:"chiropractic-care", name:"Chiropractic Care", group:"Clinical care",
+ blurb:"Gentle McTimoney and Diversified techniques to relieve symptoms, find the underlying cause, and restore natural, comfortable movement.",
+ photo:"chiro-hands.jpeg",
+ price:"£65 initial consultation · £55 follow-up", duration:"Initial up to 60 min · follow-ups 20–30 min",
+ who:["ceris-owen","christine-hagon"],
+ book:BOOK,
+ detail:`
+ <p>Chiropractic care at The Health Barn specialises in the low-force chiropractic technique known as the <strong>McTimoney Method</strong>. Not only will its gentle approach relieve your symptoms, but the thorough assessment process will find the underlying cause, so the root of the problem can be found and addressed — meaning you feel better for a sustained period of time. The key to the McTimoney approach is the speed and accuracy of the adjustments. Both Ceris and Christine use chiropractic care along with other techniques, such as massage and dry needling, in their treatments.</p>
+ <h3>Conditions chiropractic care can help</h3>
+ <ul>
+  <li>General, acute &amp; chronic backache</li>
+  <li>Joint pains, including hip and knee pain from osteoarthritis (as an adjunct to core OA treatments and exercise)</li>
+  <li>Shoulder complaints — dysfunction, disorders and pain, soft tissue disorders, rotator cuff injuries</li>
+  <li>Mechanical neck pain · headache arising from the neck (cervicogenic) · migraine prevention</li>
+  <li>Sciatica · muscle spasms · cramp · ankle sprain (short-term management)</li>
+  <li>Elbow pain and tennis elbow arising from associated musculoskeletal conditions of the back and neck</li>
+  <li>Minor sports injuries and tensions · plantar fasciitis (short-term management) · generalised aches and pains</li>
+  <li>Dizziness — Ceris is qualified to perform the Epley Manoeuvre, a treatment for BPPV</li>
+ </ul>
+ <p>Chiropractic is also a successful preventative therapy and can stop minor problems becoming greater. Used regularly, a package of chiropractic care can help maintain good posture, promote health and improve performance — whether you are an elite athlete or simply enjoy getting out in the garden. There is no upper or lower age limit to receiving chiropractic care.</p>
+ <h3>What to expect — your first visit</h3>
+ <p>At your first visit your chiropractor will carry out a full consultation and examination to determine how best to help you: a medical history including your current problem, any previous history, and general health and lifestyle information, followed by any necessary orthopaedic and neurological tests to establish a working diagnosis. This is generally carried out fully clothed — please wear loose-fitting, comfortable clothing. Your chiropractor will explain what she is looking for and discuss any findings. If you are happy to proceed, treatment is carried out at the same visit. Please allow up to an hour.</p>
+ <h3>Follow-up visits</h3>
+ <p>At follow-up visits your chiropractor will discuss your progress and carry out more treatment as necessary, along with any exercise or lifestyle advice to assist your progress. The number of visits varies greatly from person to person — as a rough guide, the longer a condition has been present, the longer it takes to improve. Your chiropractor will agree a plan of care with you and review progress regularly. Please allow 20 to 30 minutes.</p>
+ <h3>Maintenance care</h3>
+ <p>We believe everyone can benefit from chiropractic care, whether currently in pain or not — keeping the body functioning at its best, nipping potential problems in the bud, and giving peace of mind. Once your condition has improved we offer regular maintenance visits, generally every one to three months depending on the individual. You are, of course, free to cease chiropractic care at any time.</p>
+ <h3>Frequently asked questions</h3>
+ <ul>
+  <li><strong>How do I book?</strong> Please give us a call on 01931 712 300.</li>
+  <li><strong>Is chiropractic regulated?</strong> Chiropractic is a primary healthcare profession regulated by the General Chiropractic Council (GCC). Chiropractors may only practise if registered with the GCC.</li>
+  <li><strong>What should I wear?</strong> Loose-fitting comfortable clothing such as sportswear is best. Assessment and treatment are generally carried out fully clothed; for certain aspects of assessment some outer layers may need to be removed. A gown can be provided, or bring shorts and a vest top.</li>
+  <li><strong>What should I bring?</strong> A list of current medication and dosages (including vitamins and supplements), and any doctors' letters or medical reports relating to your current condition.</li>
+  <li><strong>Chiropractic in pregnancy?</strong> Chiropractic is a safe, drug-free and gentle treatment that may help alleviate the stresses of pregnancy on the body, and after birth. Techniques are adapted for a safe and comfortable treatment.</li>
+ </ul>`},
+
+{slug:"physiotherapy", name:"Physiotherapy & Wellbeing", group:"Clinical care",
+ blurb:"Orthopaedic, musculoskeletal and pelvic-health physiotherapy with Rosanna — one of the only Mummy MOT practitioners in Cumbria.",
+ price:"See booking · discounted initial appointment if referred in-house", duration:"By consultation",
+ book:BOOK+"#/staff_member/5/treatment/13",
+ detail:`
+ <p>As well as being an orthopaedic and musculoskeletal specialist, Rosanna is a pelvic health expert, and one of the only <strong>Mummy MOT</strong> practitioners in the whole of Cumbria. She believes no woman should have to just get on with the lesser-spoken-about issues, which are all too common and undertreated. This isn't limited to pregnancy and childbirth-related concerns: peri-menopause and menopause can also affect the pelvic floor (bowel, bladder, prolapse, sexual health), the core (stomach, back, hips) or the whole body.</p>
+ <p>Rosanna's aim is very much to work with you on a partnership level, and to be your coach and cheerleader. She will tailor your treatment plan to you, and discuss it with you at your first session.</p>
+ <p>For Pilates, Rosanna runs sessions in blocks of six (preferably at 1–2 week intervals, adjustable to your needs). If you'd like to book with a friend or partner the price is shared between you (1:1 or 1:2).</p>
+ <h3>Examples of conditions Rosanna sees</h3>
+ <ul>
+  <li>Pregnancy — pain, pelvic floor health, birthing preparation</li>
+  <li>C-section recovery (pain, scar issues, trauma, muscles) · vaginal birth recovery · post-episiotomy recovery · persistent pain after childbirth</li>
+  <li>Bladder leakage (stress urinary incontinence) · bladder urgency · interstitial cystitis · bowel issues (constipation / urgency / leaking)</li>
+  <li>Post-operative rehabilitation (e.g. orthopaedic or abdominal surgery)</li>
+  <li>Chronic regional pain syndrome · persistent pain anywhere in the body lasting more than 6 months</li>
+  <li>Abdominal rectus diastasis · hypermobility · endometriosis</li>
+  <li>Peri-menopausal symptoms · menopause · back pain (recent and longstanding) · running-related issues</li>
+ </ul>
+ <p>Your initial appointment can be booked and paid for online, or call The Health Barn reception. <strong>NB:</strong> if you have been referred to Rosanna by one of The Health Barn practitioners, you will receive a discounted initial appointment and a bespoke treatment plan will be discussed with you — please call The Health Barn direct to book.</p>
+ <p>More about Rosanna: <a href="https://www.physiointhelakes.co.uk/" target="_blank" rel="noopener">physiointhelakes.co.uk</a></p>`},
+
+{slug:"low-level-laser-therapy", name:"Low Level Laser Therapy", group:"Clinical care",
+ blurb:"Painless, non-invasive cold-laser phototherapy to stimulate healing, resolve inflammation and relieve pain.",
+ photo:"EVRL-on-Foot.jpg",
+ price:"£65 initial consultation incl. treatment · £25 / 15 min · £45 / 30 min follow-up", duration:"Initial up to 30 min",
+ who:["zoe-ayres","hazel-abbott"],
+ book:BOOK,
+ detail:`
+ <p>Low level laser therapy (LLLT), or cold laser, is a painless, sterile, non-invasive form of phototherapy which involves the application of low-power coherent light to injuries and lesions to stimulate healing. LLLT is used to increase the speed, quality and tensile strength of tissue repair, resolve inflammation, increase range of motion and give pain relief. <a href="https://erchonia-emea.com/lllt/" target="_blank" rel="noopener">Erchonia Medical</a> is the leading research company on lasers and the developer of LLLT technology. Cold laser therapy is a major advancement in healing — rewriting the medical books on what is possible for chronic injuries, pain management, neurological impairment, and facilitating the healing process in disease conditions.</p>
+ <h3>How does it work?</h3>
+ <p>The effects of LLLT are photochemical (cold), not thermal. Hot lasers in the medical world are used for surgical precision, while cold lasers are used for healing precision. During treatment with the 635&nbsp;nm laser, an interaction between cells and photons takes place — a photochemical reaction. The cold laser enters the tissue, alters cell membrane permeability, and is absorbed in the mitochondria — the "powerhouse" of the cells — which make the ATP needed by every cell. This facilitates:</p>
+ <ul>
+  <li><strong>Rapid cell growth</strong> — the laser accelerates cellular reproduction and growth.</li>
+  <li><strong>Faster wound healing</strong> — stimulating fibroblast development in damaged tissue and reducing recovery time.</li>
+  <li><strong>Increased metabolic activity</strong> — greater output of specific enzymes, more oxygen to blood cells and a more effective immune response.</li>
+  <li><strong>Reduced fibrous tissue formation</strong> — less scar tissue following cuts, scratches, burns or surgery.</li>
+  <li><strong>Anti-inflammatory action</strong> — reduced swelling from bruising or joint inflammation, improving mobility.</li>
+  <li><strong>Increased vascular activity</strong> — stimulated lymph and blood circulation for the affected tissue.</li>
+  <li><strong>Stimulated nerve function</strong> — speeding nerve cell reconnection and increasing the amplitude of action potentials to optimise muscle action.</li>
+ </ul>
+ <p>Research has shown that the cells of the body communicate with each other through coherent light. With the Erchonia laser, specific pulsations (hertz) can be programmed with the laser frequency, allowing the practitioner to "talk cell talk" with the body — important when working with a variety of injury and disease conditions to promote healing. See the research at <a href="https://erchonia-emea.com/research/" target="_blank" rel="noopener">erchonia-emea.com/research</a>.</p>
+ <h3>LLLT at The Health Barn</h3>
+ <p>Initial consultation session with a therapist is <strong>£65</strong>, including an LLLT treatment. Subsequent sessions are <strong>£25 for 15 minutes</strong> or <strong>£45 for 30 minutes</strong>, depending on what is required.</p>`},
+
+{slug:"adsportsmassage", name:"AD Sports Massage", group:"Clinical care",
+ blurb:"Level 4 sports massage and dry needling with Alex Duckitt — for performance, recovery, injury prevention and rehabilitation.",
+ price:"£50 / 45 min · £55 / 60 min · £55 / 45 min with dry needling · £60 / 60 min full body", duration:"45–60 min",
+ who:["alex-duckitt"],
+ book:BOOK,
+ detail:`
+ <p>Alex is a Level 4 Sports Massage Therapist with a CPD qualification in Dry Needling. She offers both treatments at The Health Barn to promote wellbeing, improve movement, prevent injury and support injury rehabilitation. With a wide variety of clients from different backgrounds and with different requirements, Alex understands the importance of keeping the body's soft tissues functional to promote efficient movement and maximise performance — whether in elite sport or everyday life.</p>
+ <p><strong>Sports massage</strong> focuses on the manipulation of soft tissues including the skin, fascia, muscles, tendons and ligaments. It is designed to promote healing in these tissues from issues and imbalances caused by physical activity, repetitive strain and trauma. Maintaining good soft tissue health promotes functional movement, increased performance and pain-free living!</p>
+ <p><strong>Dry needling</strong> involves the insertion of fine acupuncture needles directly into the muscle belly or tendon where there is tension or dysfunction. It increases blood flow to the area and stimulates a healing response in the body. Used alongside a sports massage treatment, dry needling is very effective in reducing pain and increasing mobility and range of motion.</p>
+ <p><a href="#/practitioners/alex-duckitt">Learn more about Alex →</a></p>`},
+
+/* ---------------- Hands-on & holistic ---------------- */
+{slug:"holistic-and-pamper-sessions", name:"Holistic & Pamper Sessions", group:"Hands-on & holistic",
+ blurb:"Facials, massage, reflexology, reiki and energy therapies — every session tailored to you in a deeply relaxing, tranquil space.",
+ photo:"Pamper.jpeg",
+ price:"See full menu below", duration:"30 min – 2 hrs",
+ book:BOOK,
+ accordions:true,
+ detail:`
+ <p><strong>The Health Barn provides a relaxing and tranquil space for your health and wellbeing. Whether you require support with injury, rehabilitation, stress relief or general relaxation, our team has a client-centred approach with treatments tailored to individual needs.</strong></p>
+ <p>Indulge in deeply nurturing therapies that soothe the senses, restore energy and leave you glowing. Perfect as a treat for yourself or a shared experience with someone special. Our therapists are highly qualified; all sessions include a consultation and can be adapted and tailored to focus on your individual health needs.</p>
+ <p>Better yet, treat yourself to one of The Health Barn's Signature Treatments during your stay. Pamper Sessions are different in that they allow extra time both for the treatment and relaxation, with light refreshments in our chill-out area. Have a look at our <a href="#/treatments/pamper-packages">Pamper Packages</a>.</p>`},
+
+{slug:"pamper-packages", name:"Pamper Packages", group:"Hands-on & holistic",
+ blurb:"Longer, slower sessions — extra time for treatment and unhurried rest, with drinks and nibbles in the private chill-out area.",
+ price:"£155 – £225 per package", duration:"Allow 2½ – 4 hrs",
+ book:"mailto:info@thehealthbarn.co.uk",
+ detail:`
+ <p>Our Pamper Packages allow extra time both for the treatment and then relaxation with light refreshments in our tranquil chill-out area, where you can escape the stresses of everyday life and completely switch off and relax. The following are examples of what we can offer — please ask if you would like to arrange your own bespoke package.</p>
+ <p>Individuals, couples, friends, parent and child all love these options: each has a treatment, then relaxes with a drink and nibbles while spending time together in our private chill-out area, before the second treatment — followed by unrushed time together and another drink if desired.</p>
+ <h3>Reflexology &amp; Float — allow 3 hours — £155</h3>
+ <p>With this combination you experience a full reflexology session before embarking on the experience of floatation therapy, which will enhance and deepen the benefits of the reflexology.</p>
+ <h3>Float &amp; Kundalini Reiki — allow 3 hours — £155</h3>
+ <p>A truly amazing two and a half hours of relaxation on another level. Some people find floating a great way to explore the mind, similar to meditating; adding the Kundalini energy before a float can lead the way to what our mind and body need on a subconscious level.</p>
+ <h3>Hot Stones &amp; Facial Massage — allow 2½ hours — £155</h3>
+ <p>The warmth of natural basalt stones eases deep muscular tension before the focus turns to the face with a luxurious facial massage.</p>
+ <h3>The Ultimate Escape — allow 3 hours — £185</h3>
+ <p>A blissful two-and-a-half-hour treatment session beginning with a whole-body aromatherapy massage, a Hot Stone Massage or Thai Bamboo Massage, before the focus turns to the face with one of our luxury facials. The facial includes massage techniques, acupressure points and lymphatic drainage — enhancing complexion, firming, lifting and toning the facial muscles with beautiful natural products.</p>
+ <h3>The Health Barn Signature — allow 4 hours — £225</h3>
+ <p>A beautiful way to spend three and a half hours: the relaxation and tranquillity of a floatation session leaves your skin ultra-soft, ready to soak in the benefits of aromatherapy oils in a full-body massage — or enjoy the heat and smooth texture of natural basalt stones in our hot stone massage for greater penetration of heat into the muscles, or the full-body Thai Bamboo Massage, which works with muscles, joints and the lymphatic system, allowing blockages to be removed from the Sen energy channels and the physical body to align with the energy body.</p>
+ <p><strong>To arrange a Pamper Package, contact us by email or give us a call.</strong> A 50% non-refundable deposit confirms your booking.</p>`},
+
+{slug:"reflexology", name:"Reflexology Treatments", group:"Hands-on & holistic",
+ blurb:"Clinical reflexology, reflexology lymphatic drainage and luxury reflexology — gentle, non-invasive therapy for whole-body balance.",
+ photo:"reflexology.jpg",
+ price:"Initial £60 (90 min) · follow-up £50 (45 min)", duration:"45–120 min",
+ who:["christine-jackson","sue-leather"],
+ book:BOOK,
+ detail:`
+ <h3>Clinical Reflexology — with Christine Jackson &amp; Sue Leather</h3>
+ <p>Clinical reflexology is a non-invasive therapy focusing on the hands or feet that works alongside conventional medical care. It helps re-balance your body to achieve healing and wellbeing in a relaxing, rejuvenating and therapeutic way. It works on the principle that different areas of the feet, hands and face correspond to all the different areas of the body, including the internal organs and glands, and aims to bring balance to the whole body and mind.</p>
+ <p>Each session is based on the individual needs of the client. Everyone is different, and our bodies may respond more quickly to some treatments than others. You may feel an improvement after one treatment; it may be advisable to follow a course of treatments with monthly maintenance visits, depending on your health and requirements.</p>
+ <p>The deep relaxation and improved sense of wellbeing can benefit anyone, but may be particularly beneficial for:</p>
+ <ul>
+  <li>Effects on mood · sleep disorders</li>
+  <li>Digestive problems such as IBS or constipation</li>
+  <li>Headaches and migraines</li>
+  <li>Muscular tension such as back, shoulder and neck pain</li>
+  <li>Hormonal imbalances, e.g. PMS, endometriosis, painful or heavy periods</li>
+  <li>Fertility problems</li>
+ </ul>
+ <h3>Reflexology Lymphatic Drainage — with Christine Jackson</h3>
+ <p>Learned from the founder Sally Kay BSc (Hons), who developed the treatment whilst working in cancer care. It was devised for supporting people affected by cancer and is an invaluable reflexology treatment. Working on the lymphatic system encourages the body to rid itself of waste, and is therefore good for supporting people with lymphoedema, fibromyalgia, ME and other immunocompromising conditions.</p>
+ <h3>Luxury Reflexology — with Christine Jackson</h3>
+ <p>The opportunity to enjoy not only the benefits reflexology may bring, but also more time to indulge in a luxurious version of the treatment. You begin the relaxation process with your feet in our foot spa whilst enjoying the tranquil surroundings. An oil-infused foot massage follows, with your feet wrapped and placed in a heated slipper, before you lie back and enjoy your reflexology treatment. You can choose a foot scrub, or from a range of aromatherapy oils from the Neal's Yard range.</p>
+ <p>The focus is on you — time is always given for you to relax and get the best out of your treatment.</p>`},
+
+{slug:"trig-point-massage", name:"Trig Point Massage & Yin Yoga", group:"Hands-on & holistic",
+ blurb:"Rachael Shreeve's unique bespoke blend for chronic pain, athletic performance and lymphatic drainage — plus Yin Yoga classes and tuition.",
+ photo:"trig-point-massage-picture.webp",
+ price:"£60 first session with full consultation · £55 per session following", duration:"60–90 min",
+ who:["rachael-shreeve"],
+ book:BOOK,
+ detail:`
+ <h3>Trig Point Massage</h3>
+ <p>Whether you're looking for help with management of chronic pain, improving athletic performance, assisting lymphatic drainage and much more, Rachael Shreeve may be able to help.</p>
+ <p>Therapies Rachael offers include in-/direct fascia release, sport &amp; orthopaedic massage, trigger point therapy, manual lymphatic drainage, hot stones, Indian head massage, TMJ (jaw and face pain), oncology massage and one-to-one Yin Yoga tuition.</p>
+ <p>A unique blend of techniques is used in a session to treat muscular and soft-tissue pain, dysfunction and injuries — the everyday stresses and injuries of life can cause restrictions and pain. Some causes build up over time through posture and work-related habits; others come from sudden trauma to the body. Either way, Rachael's treatment can be very effective at getting your body back in balance.</p>
+ <p>Rachael also offers <strong>online help</strong> with aches, pains, anxiety or stress. Via Zoom and phone she can pinpoint where your issue is most likely arising from, then show you self-help massage techniques, breathing exercises, guided meditations and numerous other self-care tips. Aromatherapy blends can be created to suit your needs and posted to you.</p>
+ <h3>Yin Yoga</h3>
+ <p>Yin Yoga is suitable for all ages and abilities. It is a functional form of yoga that allows you to work within your own body's skeletal limits and current flexibility. The only competition within Yin is to get in touch with your own body and find the perfect stretch for you. Yin targets the fascia — the connective tissue of the body that is so often the root cause of aches and pain.</p>
+ <p>Weekly Yin Yoga classes now run in <a href="#/the-loft">The Loft</a> (Thursdays). Also available: monthly workshops — £40 for a 4-hour class including light refreshments — and small bespoke classes of up to 4 students at £40 per hour. Booking is essential for all classes; contact The Health Barn for information.</p>
+ <p>More from Rachael: <a href="https://trigpointmassage.weebly.com/" target="_blank" rel="noopener">trigpointmassage.weebly.com</a></p>`},
+
+{slug:"craniosacral-therapy", name:"CranioSacral Therapy", group:"Hands-on & holistic",
+ blurb:"A gentle but potent light-touch therapy supporting the body's innate ability to balance, restore and heal itself.",
+ price:"See booking", duration:"60 min",
+ book:BOOK,
+ detail:`
+ <p>Craniosacral therapy (CST) is a gentle but potent way of working with the body using a light touch. It supports your body's innate ability to balance, restore and heal itself, as well as helping to reduce stress and build underlying energy. It is suitable for everyone, from newly-born babies to the elderly.</p>
+ <h3>SomatoEmotional Release</h3>
+ <p>SomatoEmotional Release (SER) is an extension of CranioSacral therapy, described in more detail in this <a href="https://www.fht.org.uk/fs/s/v/somato_emotional_release.pdf" target="_blank" rel="noopener">FHT guide</a>.</p>
+ <p>The SER work is an integral part of CST, if the body wishes to "go there" — it very much depends on the client. CST allows the body to release more physical tensions and restrictions, and the SER works more on emotional tensions. It isn't a counselling session, but it can allow the client to better understand the nature of emotional tension.</p>`},
+
+{slug:"the-skyngym", name:"The Skyn Gym", group:"Hands-on & holistic",
+ blurb:"Award-winning medical aesthetics and results-led skin treatments with Dr Jo McInerney and Nurse Lucy.",
+ price:"By consultation", duration:"Varies by treatment",
+ who:["dr-jo-mcinerney"],
+ book:"https://the-skyn-gym.com/",
+ detail:`
+ <p>Dr Jo has worked as a GP for over 25 years, having qualified from Liverpool University. Since 2012 Jo has been an aesthetic doctor. She found her passion in skincare and medical aesthetics and really enjoys helping patients feel more confident in their own skin. Whether you are concerned about active acne or unwanted signs of ageing, Dr Jo will be able to recommend the best course of treatment.</p>
+ <p>Jo completed her aesthetics training with Professor Bob Khanna more than 12 years ago and went on to open an aesthetics clinic, Cosmetic Skin Care, in 2012. She also opened a skin clinic, The Skyn Gym, in 2019 and now runs both clinics with Nurse Lucy, an independent nurse prescriber who has worked alongside Jo for more than five years.</p>
+ <p>Dr Jo has won multiple awards at the International Academy of Advanced Facial Aesthetics (IAAFA) Awards. In November 2023, she won the Best Patient Journey award and was highly commended for Best Mid-Face Rejuvenation. In 2022 she won the Best Full Face Sculpting award and was Highly Commended in the Best Lip Sculpting category, having won Best Lip Sculpting in 2017.</p>
+ <p>With her clinics based in Windsor, Jo is excited to bring her services to The Health Barn, having moved to the area a few years ago. Jo and Lucy offer a range of services, from chemical peels to facials, microneedling and anti-wrinkle injections. They treat all skin types and the treatments are suitable for both men and women. They use and stock the best skincare brands in clinic, from AlumierMD to Obagi Skincare.</p>
+ <p>They look forward to welcoming you at The Health Barn and helping with your skin concerns. Contact: <a href="https://the-skyn-gym.com/" target="_blank" rel="noopener">the-skyn-gym.com</a> · 07905 939076 · <a href="mailto:info@the-skyn-gym.com">info@the-skyn-gym.com</a></p>`},
+
+/* ---------------- Breath, mind & energy ---------------- */
+{slug:"breath-coaching", name:"Oxygen Advantage® Breath Coaching", group:"Breath, mind & energy",
+ blurb:"Science-informed breath coaching with Oli Blomfield — for health, focus and performance. Free 15-minute discovery call.",
+ price:"3-session package £135 · initial £60 · follow-up £45", duration:"Initial ~80 min · follow-ups ~50 min",
+ who:["oli-blomfield"],
+ book:"https://www.onwardsbreath.com/",
+ detail:`
+ <h3>How often do you really think about your breathing?</h3>
+ <p>Perhaps you've tried different techniques but weren't sure if they were helping — or even why you were doing them.</p>
+ <p>Whether you want to feel calmer, sleep more deeply, improve focus, or manage stress and anxiety more effectively, breath coaching can help. You may also be looking to lower blood pressure, manage asthma, improve sleep apnoea, or support recovery from illness or injury. And if you're an athlete, you might be aiming to boost performance, enhance recovery, or improve Heart Rate Variability (HRV).</p>
+ <p>Wherever you're starting from, improving your breathing is one of the simplest and most powerful tools available. That's where <strong>The Oxygen Advantage®</strong> comes in. Developed by Patrick McKeown and rooted in principles of the Buteyko Method, this science-informed approach uses assessments and personalised techniques to help you breathe better — for everyday health, mental clarity and physical performance. <a href="https://oxygenadvantage.com/about/" target="_blank" rel="noopener">Learn more about the Oxygen Advantage®</a>.</p>
+ <h3>Want to learn more?</h3>
+ <p>If you're curious about how your breathing affects your everyday life — and how small changes can support better health, wellbeing and performance — you're welcome to start with a <strong>free 15-minute Discovery Call</strong>. It's a chance to ask questions, learn more about the process, and see if breath coaching feels like a good fit for you. To book your call, contact Oli directly: <a href="https://www.onwardsbreath.com" target="_blank" rel="noopener">onwardsbreath.com</a> · <a href="mailto:onwardsbreath@outlook.com">onwardsbreath@outlook.com</a> · 07356 256929 (SMS or WhatsApp).</p>
+ <h3>Building a strong breathwork practice</h3>
+ <p>To build a strong and sustainable breathwork practice, Oli recommends a minimum of three sessions: an Initial Consultation and two Follow-Up Sessions. <strong>3-Session Package: £135.</strong> Sessions are also available individually. If your focus is sporting performance, a 5-session package allows time to explore more advanced techniques (pricing on request).</p>
+ <p><strong>Initial Consultation — £60</strong> (in person at The Health Barn or online, approx. 80 minutes). An in-depth session exploring your breathing patterns, how they may be influencing daily life, and what you'd like to improve. You'll complete a short intake form beforehand, and leave with clearer insight into how your breath works plus personalised practices to begin right away.</p>
+ <p><strong>Follow-Up Session — £45</strong> (approx. 50 minutes). These sessions reinforce what you've learned, support consistency, and allow techniques to be refined or developed — with time to ask questions, explore challenges and introduce new exercises as needed.</p>
+ <h3>Payment info</h3>
+ <p>For 1:1 sessions, payment is requested in advance via bank transfer; cash is also welcome in person. Cancellations or rescheduled appointments require at least 24 hours' notice — sessions cancelled with less notice may be charged in full. Health Barn Gift Vouchers are accepted.</p>`},
+
+{slug:"harmonic-breathwork", name:"Harmonic Breathwork", group:"Breath, mind & energy",
+ blurb:"A gentle, guided practice using slow, musical breathing to settle the nervous system, calm the heart and clear mental clutter.",
+ price:"1:1 session £45", duration:"60 min",
+ who:["oli-blomfield"],
+ book:"https://www.onwardsbreath.com/",
+ detail:`
+ <p><strong>Harmonic Breathwork is a gentle yet powerful guided practice that helps you shift your breathing patterns and settle your circulatory system, nervous system, mind and emotions.</strong></p>
+ <p>Using slow, musical breathing with original compositions by Aria Breath, it calms the heart, softens the body, and clears mental clutter. Aria Breath music is immersive and gently rhythmic, created to support a steady breathing flow and help you settle into deep relaxation.</p>
+ <h3>Sessions</h3>
+ <ul>
+  <li><strong>One-to-one</strong> — at The Health Barn, Askham</li>
+  <li><strong>Groups</strong> — in The Loft at The Health Barn</li>
+ </ul>
+ <p>Each 60-minute session includes simple preparation exercises, around 20 minutes of harmonic breathing, and time for integration and questions. You'll be most comfortable lying down or in a supportive chair, with a blanket and eye mask. A notebook can be useful for reflections afterwards.</p>
+ <p>Some health conditions (heart, pregnancy, mental health, certain medications) may require a brief discussion before booking. A short health disclaimer will be completed prior to the session.</p>
+ <h3>Pricing</h3>
+ <p><strong>Harmonic Breathwork 1:1 Session — £45</strong> — a 60-minute session including gentle preparation exercises, around 20 minutes of guided harmonic breathing to Aria Breath music, followed by time for integration and questions. In-person group sessions are also available — contact us for details.</p>
+ <p>Contact: <a href="https://www.onwardsbreath.com" target="_blank" rel="noopener">onwardsbreath.com</a> · <a href="mailto:onwardsbreath@outlook.com">onwardsbreath@outlook.com</a> · 07356 256929</p>`},
+
+{slug:"accessbars", name:"Access Bars", group:"Breath, mind & energy",
+ blurb:"Gentle touch on 32 points of the head to release limiting thoughts and beliefs — like rebooting a busy mind.",
+ price:"£60 initial consultation · £50 follow-up", duration:"Initial 75 min",
+ who:["hazel-abbott"],
+ book:BOOK,
+ detail:`
+ <p>For many people it is hard to let go of our busy days, releasing the mind from the tension and worries daily life can carry.</p>
+ <p><strong>Access Bars</strong> is a simple technique of gently touching 32 points on your head, each representing different areas of our life. This light touch releases limiting thoughts, feelings, emotions and beliefs corresponding to the specific bar being activated, creating deep relaxation. This helps quieten a racing mind, reduce stress and give your brain replenishing space — improving mental performance and productivity, increasing intuition and attention, and resulting in a more positive attitude towards life and the prevention of burning out.</p>
+ <blockquote>Think of the brain like a busy computer: having your bars run is like rebooting your mind, allowing it to run more smoothly!</blockquote>
+ <p>Contact reception to book in with Hazel for an initial 75-minute treatment — or <a href="${'https://thehealthbarn.janeapp.co.uk/'}" target="_blank" rel="noopener">book online</a>.</p>`},
+
+{slug:"sound-therapy", name:"Sound Therapy", group:"Breath, mind & energy",
+ blurb:"Immersive sound journeys with Danielle Smitham (Resonate8) — Himalayan and crystal singing bowls, tuning forks and Solfeggio frequencies.",
+ price:"30 min £35 · 60 min £60 · 90 min £90", duration:"30–90 min",
+ who:["danielle-smitham"],
+ book:BOOK,
+ detail:`
+ <h3>Inner Balance Sound Ritual — 30 minutes · £35</h3>
+ <p>A restorative and accessible introduction to sound therapy, ideal for those new to it or anyone seeking a gentle boost to reset and restore. Designed to support nervous system regulation while helping you reconnect with a sense of balance and calm. Using a blend of Himalayan singing bowls, tuning forks and crystal singing bowls, therapeutic sound frequencies encourage harmony within the body's primary energy centres (chakras). This non-touch treatment allows you to fully relax into an immersive soundscape where carefully selected frequencies promote grounding, calm and subtle energetic alignment.</p>
+ <p><em>Benefits may include:</em> nervous system regulation · reduced stress and tension · grounding with a sense of lightness and clarity.</p>
+ <h3>Signature Sound Journey: Sonic Alignment — 60 minutes · £60</h3>
+ <p>A deeply personalised and immersive session offering a refined approach to sound therapy, integrating both therapeutic and energetic principles. This extended treatment includes 45 minutes of tailored sound work, followed by time to ground, integrate and reflect. Working across the full chakra system and energetic body, it incorporates Himalayan singing bowls, hand-held crystal bowls and Solfeggio frequencies to support vibrational alignment at a deeper level. Each session is intuitively guided and responsive to your individual needs.</p>
+ <p><em>Benefits may include:</em> enhanced energetic coherence and balance · deep relaxation and nervous system restoration · insight into personal energy patterns and holistic wellbeing.</p>
+ <h3>Energetic Resonance (Advanced Session) — 90 minutes · £90</h3>
+ <p>This advanced, immersive treatment is designed for clients who have previously experienced Sonic Alignment sessions and are ready to explore deeper energetic work. Extending beyond the physical body, it focuses on the subtle energetic field (aura) — supporting refinement, restoration and expansion of your energetic system. Following the session, dedicated time is provided to gently explore and discuss any energetic themes or insights that have emerged, supporting you in integrating the experience into everyday life.</p>
+ <p><em>Benefits may include:</em> advanced energetic balancing and restoration · deep states of relaxation and inner stillness · greater awareness and integration of personal energy needs · support for continued personal and energetic development.</p>`},
+
+{slug:"clares-chat", name:"Clare's CHAT — Holistic & Energy Treatments", group:"Breath, mind & energy",
+ blurb:"Reiki, Indian head massage, Thai bamboo massage, crystal healing, Hopi ear candling and treatments unique to Clare's CHAT.",
+ price:"Most sessions £45–£65", duration:"~60 min",
+ who:["clare-markey"],
+ book:BOOK+"#/staff_member/23",
+ detail:`
+ <ul>
+  <li><strong>Reiki</strong> — Reiki is the Japanese phrase for "universal life energy". Reiki can enhance physical, emotional and spiritual health and wellbeing. This hands-on treatment allows the energy of life to pass through Clare to the person being treated. Clare is a Reiki Master Teacher attuned by the traditional Usui method.</li>
+  <li><strong>Indian Head Massage — 'Malish Technique'</strong> — an Ayurvedic form of healing and relaxation addressing the back, neck, shoulders, scalp and face. This treatment can be done with or without oils — your choice!</li>
+  <li><strong>Thai Bamboo Massage</strong> — this full-body massage works with muscles, joints and the lymphatic system, allowing blockages to be removed from the Sen energy channels. The duality of this treatment allows the physical body to align with the energy body, leaving a deeper and more cohesive feeling of wellbeing.</li>
+  <li><strong>Dragon Breathing</strong> — a totally unique treatment that can only be found at Clare's CHAT. Using crystals and the Four Winds, Clare will help you stand in your own potential, empowered by the fire of dragons.</li>
+  <li><strong>Flow</strong> — connect to the element of water to build strength and clarity whilst purifying and renewing your energy, enabling ease and flow back into the everyday. Unique to Clare's CHAT.</li>
+  <li><strong>Hopi Ear Candling</strong> — thermal auricular therapy is a soothing and relaxing treatment for the ears. It can also help with headaches, migraines, sore throat, hay fever, tinnitus and sinusitis, to name a few!</li>
+  <li><strong>Crystal Healing</strong> — from chakra balancing to physical and emotional healing, Clare uses the crystals that are right for you to help with your specific needs.</li>
+  <li><strong>Fusion</strong> — can't decide? Choose Fusion and Clare will create a bespoke combination treatment just for you.</li>
+  <li><strong>Dragon Readings</strong> — looking for guidance or clarity? Let Clare help you tap into the wisdom of dragons to assist you in your quest.</li>
+ </ul>
+ <p><a href="#/practitioners/clare-markey">More about Clare →</a> · <a href="https://www.clareschat.co.uk/services" target="_blank" rel="noopener">clareschat.co.uk</a></p>`}
+];
+
+/* Holistic & Pamper menu — rendered as accordions on that page */
+const HOLISTIC_MENU = [
+ {title:"Head & Face Treatments", items:[
+  ["Holistic Facials","A deeply relaxing and rejuvenating facial treatment combining massage, acupressure and lymphatic drainage. Drawing on Indian and Japanese techniques, this treatment also includes the shoulders and neck to release tension and support overall wellbeing. Designed to enhance complexion, improve tone and firmness, soften fine lines and leave you feeling refreshed, glowing and deeply relaxed.","45 min £55 · 60 min £70 · 90 min £85"],
+  ["Access Energetic Facelift™","A gentle yet dynamic hands-on treatment designed to rejuvenate the face while supporting the whole body. The soothing touch applied to the face and neck works with the body's cells to restore vitality, encourage natural healing processes and promote a youthful, refreshed appearance.","1 hr £50"],
+  ["Facial Reflexology","Facial reflexology works on specific reflex points on the face that correspond with the whole body. This deeply calming treatment aims to reduce stress, improve circulation and nerve conduction, and support the body's natural healing mechanisms, encouraging balance throughout.","60 min £70"],
+  ["Access Bars","A calming treatment using light touch on 32 points of the head, helping clear mental clutter, reduce stress and restore clarity.","See Access Bars page"],
+  ["Floatation Therapy","A deeply restorative experience offering profound relaxation for the body and mind. Floatation therapy may support stress reduction, muscular relaxation, pain relief and improved sleep patterns. Includes briefing, pre-shower, 60-minute float and post-shower.","75 min £50"]]},
+ {title:"Body Massage Therapies", items:[
+  ["Holistic / Swedish Massage","Choose between a deeper, muscle-focused approach or a soothing, stress-relieving holistic massage. This treatment aims to release tension, calm the nervous system, improve sleep quality and support the body's natural healing response.","Back, neck & shoulders 60 min £80 · Back, legs & feet 60 min £80 · Full body 90 min £100"],
+  ["Aromatherapy Massage","A nurturing and deeply relaxing massage enhanced with pre-blended therapeutic-grade essential oils. Designed to support emotional balance, ease physical tension and restore a sense of wellbeing.","Back, neck & shoulders 75 min £90 · Lower back & legs 75 min £90 · Full body 90 min £115"],
+  ["Bespoke Clinical Aromatherapy Treatment Massage","Begins with a physical, emotional and energetic consultation to create a personalised essential oil blend tailored specifically to you. The massage focuses on supporting the nervous and circulatory systems, promoting deep relaxation and balance. You will receive a 5ml bottle of your bespoke oil blend to take home, with guidance for ongoing use.","Initial consultation & treatment £75 · follow-up 60 min £60 · follow-up 30 min £48 · bespoke creams & lotions made to order"],
+  ["Hot Stone Massage","Using smooth natural basalt stones and bamboo canes, heat is gently introduced into the muscles to allow deeper relaxation and greater release of tension. Ideal for those with chronic tightness or who enjoy a deeply soothing treatment.","Back, neck & shoulders 60 min £90 · Lower back & legs 60 min £90 · Full body 90 min £115 · Full body with luxury facial 120 min £150"],
+  ["Thai Bamboo Massage","A full-body treatment working with muscles, joints and the lymphatic system using warm bamboo tools. This massage helps clear blockages in the Sen energy channels, supporting both physical alignment and energetic balance. Can be included as part of The Ultimate Escape package.","Full body 90 min £115"],
+  ["Pregnancy Massage","Designed to support both mother and baby, this gentle yet effective massage accommodates the changing body during pregnancy. Areas commonly affected by additional weight and postural changes — such as the back, neck and legs — are carefully supported to promote comfort, relaxation and wellbeing.","60 min £75"],
+  ["Moroccan Sacred Candle Massage","A deeply nourishing ritual using fair-trade Moroccan black beldi soap, traditional hammam exfoliation and warm massage candles infused with natural oils, shea butter and essential oils. Designed to connect mind, body and soul, leaving you feeling grounded, cared for and deeply relaxed.","45 min £65 · 60 min £80"],
+  ["Chinese Fire Cupping","An ancient therapy using suction cups to increase blood flow, release stubborn tension and loosen tight muscles. Many people find this treatment both effective and deeply relaxing.","60 min £65"]]},
+ {title:"Reflexology", items:[
+  ["Reflexology","A hands-on therapy working on reflex points in the feet that correspond with the entire body. This calming treatment aims to release tension, restore balance and support overall wellbeing.","75 min £80"],
+  ["Luxury Reflexology","Begin with a relaxing foot spa and refreshment, followed by an oil-infused foot massage. Your feet are then wrapped and warmed before you enjoy a deeply relaxing reflexology session. You may choose a foot scrub or aromatherapy oil from the Neal's Yard Organic range.","120 min £100"],
+  ["Reiki Reflexology","Combines reflexology with Reiki energy work to take relaxation and balance to a deeper level, supporting both physical and energetic wellbeing.","75 min £90"]]},
+ {title:"Energy Therapies", items:[
+  ["Usui Reiki","Traditional Reiki using hands-on or hands-off techniques to support balance on physical, emotional and energetic levels. Suitable for those who prefer a fully clothed treatment.","60 min £65"],
+  ["Angelic Reiki","Works with higher angelic energies to bring balance to body, mind, emotions and spirit, often leaving recipients feeling deeply calm and supported.","60 min £65"],
+  ["Kundalini Reiki","A powerful yet gentle form of Reiki combining universal energy with the energy of creation, working at a deeper energetic level.","60 min £65"],
+  ["Usui Holy Fire® Karuna Reiki®","Holy Fire® Reiki originates from the higher dimensions of consciousness, allowing healing on a higher vibration — more direct and refined than traditional reiki. Gentle yet powerful healing that works on a soul level to help release deep wounds and ancestral trauma, bringing comfort and a deeper connection to your divine purpose and authentic self. Karuna is a Sanskrit word used in Hinduism and Buddhism, translated as any action taken to diminish the suffering of others — 'compassionate action'. Together: a total elevation of traditional reiki.","Contact us for details"],
+  ["Chakra Clearing & Balancing","Uses etheric healing, crystal placement, sound and aromatherapy to clear energetic blockages and restore balance. Angelic card reading is optional.","60 min without reading £70 · 75 min with reading £95"],
+  ["Angelic Card Reading","A guided reading with the angelic cards.","£48"]]}
+];
+
+const TEAM = [
+{slug:"christine-jackson", name:"Christine Jackson", role:"Clinical Reflexologist · BSc (Hons) BA (Hons) MAR CNHC · PR Tutor and Mentor",
+ photo:"IMG_20250210_102058.jpg",
+ book:BOOK+"#/staff_member/2",
+ offers:"Clinical Reflexology · Reflexology Lymphatic Drainage · Facial Reflexology · Reiki Reflexology · Usui Reiki · Kundalini Reiki · Angelic Reiki · Holistic Facial (including head, neck and face massage) · Energetic Facial · Chinese Fire Cupping · Sacred Moroccan Candle Wax Massage · Chakra Balancing",
+ bio:`
+ <p><strong>Chris is a Clinical Reflexologist and Complementary Therapist, holding a BSc (Hons) in Complementary Therapies. She offers calm, supportive treatments focused on balance, relaxation and holistic wellbeing.</strong></p>
+ <p>Christine (Chris) Jackson brings many years of caring experience to her work, both in the UK and abroad. Her journey has included working as a nanny in San Francisco and Paris, before returning to Cumbria to gain a BA degree and support adults with learning disabilities. Alongside this, Chris has worked in customer care and raised her two daughters — experiences that have shaped her calm, compassionate approach.</p>
+ <p>Following her own health challenges, Chris was guided towards reflexology and complementary therapies — a path that allowed her to support others in a more holistic and nurturing way. Chris graduated with a BSc (Hons) in Complementary Therapies from the University of Cumbria in 2013. She is a member of Professional Reflexology (PR), the Association of Reflexologists (AoR), the Complementary Medical Association (CMA) and the Complementary &amp; Natural Healthcare Council (CNHC), which is recognised by the NHS.</p>
+ <p>Specialising in Clinical Reflexology, Chris has continued to deepen her practice through further training in complementary therapies. She is particularly passionate about supporting those living with long-term and life-limiting conditions, including ME/CFS, fibromyalgia, MS, motor neurone disease, and those undergoing cancer care — offering treatments that aim to support comfort, balance and wellbeing.</p>
+ <p>Alongside her clinical work, Chris also teaches the <a href="#/the-loft#training">PR Professional Reflexology Diploma</a>, guiding students with care and encouragement as they develop confidence and skill within their practice.</p>`},
+
+{slug:"ceris-owen", name:"Ceris Owen", role:"Doctor of Chiropractic · MChiro, BSc (Hons)",
+ photo:"IMG_20230612_152118.jpg",
+ book:BOOK+"#/staff_member/1/treatment/2",
+ offers:"McTimoney Chiropractic · soft tissue release · dry needling · muscle testing · myofascial release · deep tissue massage",
+ bio:`
+ <p><strong>Ceris Owen</strong> is a Chiropractor with 10 years of experience, who combines chiropractic care with several different techniques to support people in achieving and maintaining their best possible health. She trained at the <strong>McTimoney College of Chiropractic</strong>, graduating with a <strong>Master's degree in Chiropractic</strong>, and has since completed further training in a range of chiropractic and manual therapy techniques. This enables Ceris to tailor each treatment to the individual, offering a broad and adaptable approach to care.</p>
+ <p>Ceris works with a whole-body perspective, integrating chiropractic adjustments with massage techniques, muscle testing, and orthopaedic and neurological assessments where appropriate. Her aim is to facilitate positive change by supporting the body's natural ability to heal, restore balance and maintain long-term wellbeing.</p>
+ <p>She works with people of all ages — from the young to the young at heart — supporting a wide range of needs including injury rehabilitation, pre- and post-training care, general maintenance, and relaxation. Ceris treats individuals from Penrith and the surrounding villages, helping people manage both the demands of active lifestyles and the physical stresses of modern living.</p>
+ <p><strong>Background:</strong> Ceris's journey into healthcare followed a complete career change. She previously worked in the film and television industry training animals, alongside roles working with a wide range of animals in other settings. Her interest in movement and the body led her to train as a massage therapist, establishing <strong>Massage for Motion</strong>, where her hands-on skills developed and evolved over time.</p>
+ <p>As her practice grew, Ceris became increasingly drawn to supporting people with pain, discomfort and dysfunction — whether due to sporting injuries or the effects of everyday life. Having personally benefited from chiropractic care for many years, she began her five-year journey to qualify as a chiropractor.</p>
+ <p>After graduating, Ceris practised under the name <strong>Eden Bodyworks</strong> at the Remedial Massage and Chiropractic Centre in Penrith. In early 2018, she partnered with Christine Jackson to create <strong>The Health Barn</strong>, bringing together their shared vision of collaborative, holistic care. Ceris is also a mum to two young boys.</p>
+ <p><em>GCC Registered.</em></p>`},
+
+{slug:"rachael-shreeve", name:"Rachael Shreeve", role:"Massage Therapist · Trig Point Massage & Yin Yoga",
+ photo:"Rachael-Shreeves.jpg",
+ book:BOOK, treatment:"trig-point-massage",
+ offers:"In-/direct fascia release · sport & orthopaedic massage · trigger point therapy · manual lymphatic drainage · hot stones · Indian head · TMJ (jaw and face pain) · oncology massage · one-to-one Yin Yoga tuition",
+ bio:`
+ <p><strong>Rachael</strong> has followed a varied and deeply interconnected career path, with each stage shaping the way she now works with people and the body.</p>
+ <p>Her first career was as a <strong>marine ecologist</strong>, working primarily with the <strong>British Antarctic Survey</strong>. Over more than 15 years, she progressed from laboratory assistant to completing a PhD, becoming involved in international research projects and working as the principal scientist aboard the research vessel <em>RRS James Clark Ross</em>. Her work also took her overseas, including teaching in South America. In 2018, she helped establish a plankton research team on St Helena — and memorably found herself swimming with a whale shark on her 50th birthday.</p>
+ <p>Twelve years ago, Rachael moved from Cambridgeshire to Cumbria and embraced a slower, more hands-on way of life. During this time, she expanded her smallholding to include beekeeping, pigs and dairy sheep, developing her dairy skills and teaching cheese making through local workshops. She also worked as a shepherdess on a neighbouring farm, supporting ewes during lambing — unknowingly refining the palpation skills that would later become central to her massage work.</p>
+ <p>Her transition into massage therapy was sparked through endurance sport. While training for what was billed as the <em>world's hardest half Ironman</em> — set around Wast Water, Hardknott Pass and Scafell Pike — she experienced sports massage as part of her preparation. That moment became a turning point, leading her to train as a massage therapist.</p>
+ <p>Six years on, Rachael is deeply passionate about her work, with a particular interest in <strong>fascia</strong> and how it influences movement, pain and emotional wellbeing. Committed to ongoing learning, she continually expands her range of techniques to help people manage pain, improve mobility, and cope with everyday stress and anxiety.</p>
+ <p>Alongside massage, she has trained as a <strong>yoga teacher</strong>, specialising in <strong>Yin Yoga</strong>, which beautifully complements her bodywork practice. In recent years, she has also undertaken further training in <strong>aromatherapy</strong>, <strong>herbal medicine</strong>, and specialist massage for the <strong>face and jaw</strong> — recognising the powerful way this work can affect the entire body, both physically and emotionally.</p>
+ <p>Rachael is passionate about working collaboratively with clients, helping people better understand their bodies and find greater freedom, ease and balance. She is always happy to discuss any concerns before treatment, ensuring each session feels supportive and appropriate. Where needed, she also offers online support, which can be surprisingly effective.</p>
+ <p><a href="https://trigpointmassage.weebly.com/" target="_blank" rel="noopener">trigpointmassage.weebly.com</a></p>`},
+
+{slug:"sue-leather", name:"Sue Leather", role:"Clinical Reflexologist",
+ photo:"Sue-Leather.jpg",
+ book:BOOK+"#/clinical-reflexology", treatment:"reflexology",
+ offers:"Clinical Reflexology",
+ bio:`
+ <p><strong>Sue is a clinical reflexologist with a strong nursing and public health background. She offers a calm, nurturing approach, supporting relaxation, balance and wellbeing through reflexology.</strong></p>
+ <p>Sue brings a wealth of experience and compassion to her work as a clinical reflexologist. She previously worked as a nurse across a wide range of roles, including <strong>critical care, health visiting and lecturing</strong>, before moving into <strong>public health</strong> as an advanced specialist practitioner. In these roles, Sue supported individuals and communities in making positive, healthier lifestyle choices.</p>
+ <p>Although her career evolved, Sue's passion for caring and making a meaningful difference has always remained strong. Discovering reflexology reignited this passion, offering a way to bring together her extensive nursing background and her desire to support people on a more personal, holistic level.</p>
+ <p>Since qualifying as a <strong>Clinical Reflexologist</strong>, Sue has found reflexology to be both deeply rewarding and motivating. She values the connections formed through treatment and considers it a privilege to offer clients time to relax, restore balance and experience the benefits of this gentle yet powerful therapy.</p>
+ <p>Sue is passionate about helping people discover reflexology, often describing it as a form of "magic" and a wonderful opportunity to slow down and reconnect with the body. Her approach is calm, supportive and centred on creating a positive, nurturing experience for each client.</p>
+ <p>Outside of her practice, Sue enjoys walking in the hills, swimming in the lakes, cheering (and sometimes suffering!) as a Sunderland AFC supporter, spending time with her sons, and helping her partner build their forever home.</p>`},
+
+{slug:"hayley-mccaffrey", name:"Hayley McCaffrey", role:"Holistic Therapist · The Healing Tree",
+ photo:"Hayley.jpeg",
+ book:BOOK+"#/staff_member/14",
+ offers:"Swedish body massage · reflexology · hot stone massage · deep tissue massage · Indian head massage · holistic facials · Usui & Angelic Reiki · chakra balancing",
+ bio:`
+ <p><strong>Hayley</strong> is a holistic therapist whose work is grounded in nurturing, balance and a deep understanding of the body's energy systems. While raising her family, Hayley became increasingly aware of her own spiritual development, which led her to explore complementary therapies and holistic healing.</p>
+ <p>Around ten years ago, Hayley and her family moved to the South Lakes, where she met her first <strong>Usui Reiki teacher</strong>. This marked a turning point in her personal and professional journey, deepening her interest in how the body and energy systems work together to support wellbeing and self-healing. From this, Hayley embarked on formal training to become a holistic therapist.</p>
+ <p>Hayley trained at <strong>The Devon Academy for Holistic Therapies</strong>, gaining <strong>iTEC Level 3 qualifications in Swedish Body Massage and Reflexology</strong>, alongside her work as a Reiki practitioner. In 2020, she founded <strong>The Healing Tree</strong>, her own practice, through which she shares her passion for helping people understand how the body and energy communicate, and how complementary therapies can support relaxation, reduce stress and anxiety, and promote overall health.</p>
+ <p>Committed to maintaining high professional standards, Hayley has continued to develop her skills through extensive <strong>CPD training</strong>, including <strong>Hot Stone Massage, Deep Tissue Massage, Indian Head Massage, Holistic Facials</strong> and <strong>Angelic Reiki</strong>. She ensures her training is in-depth and recognised by professional regulatory bodies, and she is a member of the <strong>Federation of Holistic Therapists</strong>, one of the UK's leading organisations for quality and care.</p>
+ <p>In 2024, Hayley became a <strong>certified Usui Reiki Master Teacher</strong> and now runs Reiki healing workshops in <a href="#/the-loft">The Loft</a>.</p>
+ <p><a href="https://www.thehealingtreecumbria.com/about-me" target="_blank" rel="noopener">thehealingtreecumbria.com</a></p>`},
+
+{slug:"alex-duckitt", name:"Alex Duckitt", role:"Sports Massage, Soft Tissue Therapy & Dry Needling",
+ photo:"AD-new.jpg",
+ book:BOOK, treatment:"adsportsmassage",
+ offers:"Sports massage · soft tissue therapy · dry needling",
+ bio:`
+ <p><strong>Alex</strong> is a <strong>Level 4 Sports Massage Therapist</strong> who trained at the <strong>University of Bath</strong> and works with a wide range of clients, from elite athletes to manual workers and those with desk-based lifestyles. With a background in competitive sport, Alex understands first-hand the importance of maintaining healthy, functional soft tissue to support efficient movement, performance and everyday comfort.</p>
+ <p>Alex takes a considered, individual approach to treatment, selecting techniques based on the person in front of her — whether the aim is deep relaxation, recovery support or addressing a specific injury or area of dysfunction. Her treatments are designed to support mobility, ease tension and encourage the body to move more freely and comfortably.</p>
+ <p>Alongside her sports massage training, Alex has completed a qualification in <strong>Nutrition for Physical Activity</strong>, deepening her understanding of how nutrition, exercise and rest work together to influence performance and recovery. She has also undertaken further training in <strong>Dry Needling</strong>, which she may incorporate where appropriate to support clients experiencing persistent tension or restricted range of movement.</p>
+ <p>Alex is passionate about adopting a <strong>holistic approach</strong> to health and wellbeing, recognising how interconnected the body's systems are and how dysfunction in one area can affect another. By combining her knowledge across multiple disciplines, she aims to support long-term wellbeing and help clients feel more balanced, resilient and at ease in their bodies.</p>`},
+
+{slug:"hazel-abbott", name:"Hazel Abbott", role:"Access Bars & Low Level Laser Therapy",
+ photo:"IMG_5568-(1).jpg",
+ book:BOOK, treatment:"accessbars",
+ offers:"Access Bars · Erchonia low level laser therapy",
+ bio:`
+ <p><strong>Hazel</strong> offers <a href="#/treatments/accessbars">Access Bars</a> at The Health Barn — a simple technique of gently touching 32 points on the head, each representing different areas of life, to release limiting thoughts, feelings, emotions and beliefs and create deep relaxation.</p>
+ <p>Hazel also works with the Erchonia <a href="#/treatments/low-level-laser-therapy">Low Level Laser</a>, supporting treatments that reduce inflammation, accelerate tissue healing and support overall wellbeing.</p>
+ <p>Contact reception to book in with Hazel for an initial 75-minute Access Bars treatment, or book online.</p>`},
+
+{slug:"conchita-cameron", name:"Conchita Cameron", role:"BSc, RRT, Dip-CA, Dip-CH · Clinical Aromatherapy · Reiki Master & Teacher",
+ photo:"Barn--1---16-(1-of-1).jpg",
+ book:BOOK,
+ offers:"Bespoke aromatherapy massage · Swedish massage · Angelic Reiki treatments",
+ bio:`
+ <p><strong>Conchita</strong> is a highly experienced holistic therapist with a calm, compassionate approach to healing. She has been practising complementary therapies since <strong>1992</strong>, including <strong>massage, aromatherapy, Usui Reiki and Angelic Reiki</strong>, and considers it a privilege to support people on their individual wellbeing journeys.</p>
+ <p>Alongside her holistic work, Conchita has a strong clinical background, having worked for many years as a <strong>Respiratory Therapist (Physiologist)</strong> within hospital and medical settings. This combination of medical knowledge and complementary therapy experience allows her to offer a balanced, thoughtful and supportive approach to care.</p>
+ <p>Angelic energy work is an integral part of Conchita's practice. She trained as an <strong>Angelic Teacher with the Diana Cooper School</strong> and is now an <strong>Angelic Reiki Master Teacher</strong>. With a background in education, she also enjoys sharing her knowledge through workshops, talks and classes.</p>
+ <p>Conchita specialises in <strong>Clinical Aromatherapy</strong>, with over <strong>20 years' experience in the complementary health field</strong> and <strong>15 years in respiratory healthcare</strong>, including both clinical practice and teaching roles. Her treatments are fully bespoke, beginning with a confidential consultation to understand each client's physical, emotional and lifestyle needs. From this, she creates personalised essential oil blends using therapeutic-grade oils, delivered through long, flowing massage strokes that support the nervous system, circulation and deep relaxation.</p>`},
+
+{slug:"oli-blomfield", name:"Oli Blomfield", role:"Onwards Breath · Advanced Oxygen Advantage® Instructor & Breathwork Coach",
+ photo:"Oli-new.jpg",
+ book:"https://www.onwardsbreath.com/", treatment:"breath-coaching",
+ offers:"Oxygen Advantage® breath coaching · Harmonic Breathwork",
+ bio:`
+ <p><strong>Oli is a breathwork practitioner who supports people to feel more at home in their bodies and better resourced in their daily lives.</strong> He is passionate about the role of functional breathing, movement, nature and simple, accessible practices in supporting wellbeing, resilience and sustainable performance. Having lived and worked in the Lake District for over 14 years, Oli's work is deeply influenced by the natural environment and time spent outdoors.</p>
+ <p>As an <strong>Oxygen Advantage® Advanced Instructor</strong>, Oli combines science-informed functional breathing with person-centred breathwork. His approach draws on training with <strong>Aria Breath</strong> and <strong>Alchemy of Breath</strong>, supporting people seeking calm, clarity, emotional regulation and improved performance.</p>
+ <p>Oli's path into breathwork comes from lived experience. After a career in sales across the commercial and third sectors, alongside more than a decade as an ultra-distance and fell runner, he experienced burnout that significantly impacted his physical and mental health. Breathwork became a constant and supportive tool throughout his recovery, shaping the way he now works with others.</p>
+ <p>Becoming a parent further deepened Oli's understanding of nervous-system regulation, sustainable energy and the importance of simple practices that fit into everyday life. He now works with people recovering from burnout, managing stress or anxiety, seeking deeper rest, or looking to improve performance — whether in sport, work or daily living.</p>
+ <p>Oli begins his work with a one-to-one conversation, focusing on alignment and suitability rather than labels. His role is to guide, support and empower people at their own pace, using breathwork to build resilience, connection and confidence — one breath at a time.</p>
+ <p><a href="https://www.onwardsbreath.com/#contact" target="_blank" rel="noopener">Free 15-minute consultation</a> · <a href="https://www.onwardsbreath.com/" target="_blank" rel="noopener">onwardsbreath.com</a></p>`},
+
+{slug:"clare-markey", name:"Clare Markey", role:"Clare's CHAT — Holistic & Energy Treatments",
+ photo:"image0-(1).jpeg",
+ book:BOOK+"#/staff_member/23", treatment:"clares-chat",
+ offers:"Reiki · Indian head massage (Malish technique) · Thai bamboo massage · Dragon Breathing · Flow · Hopi ear candling · crystal healing · Fusion · Dragon readings",
+ bio:`
+ <p><strong>Clare Markey — supporting your leap to limitless possibilities.</strong></p>
+ <p><strong>Clare</strong> began her personal healing journey on the <strong>Winter Solstice of 2016</strong>, following a life-changing experience that opened the door to deeper self-discovery and energetic work. From that point, she committed to exploring a range of holistic and spiritual practices, drawing inspiration from <strong>Native American and Shamanic traditions</strong>, alongside <strong>Reiki, crystal healing</strong> and elements of <strong>Buddhist philosophy</strong>.</p>
+ <p>Over time, both Clare and her work have continued to evolve. <strong>Clare's CHAT</strong> has grown into a unique and intuitive approach, blending energy work with the natural forces of the <strong>Four Winds</strong> and the grounding support of <strong>Mother Nature</strong>. Each session is shaped by intention, connection and a deep respect for the individual journey of the person she is working with.</p>
+ <p>Clare's work is rooted in supporting transformation — gently encouraging clients to move beyond limitations and reconnect with their own inner strength and possibilities. Her approach is nurturing, intuitive and deeply personal, offering a safe and supportive space for growth and change.</p>
+ <p>What began as a small, heartfelt practice has grown into a true passion. Clare finds great joy in witnessing her clients evolve and flourish, and it is an honour for her to share her healing work with everyone who crosses her path.</p>
+ <p><a href="#/treatments/clares-chat">See Clare's treatments →</a> · <a href="https://www.clareschat.co.uk/services" target="_blank" rel="noopener">clareschat.co.uk</a></p>`},
+
+{slug:"dr-jo-mcinerney", name:"Dr Jo McInerney", role:"Aesthetic Doctor & GP · MBChB DRCOG MRCGP · The Skyn Gym",
+ photo:"Jo-SkynGym.jpg",
+ book:"https://the-skyn-gym.com/", treatment:"the-skyngym",
+ offers:"Chemical peels · advanced facials · microneedling · anti-wrinkle injections",
+ bio:`
+ <p><strong>Dr Jo is an award-winning aesthetic doctor and GP with over 25 years' medical experience. She specialises in advanced skincare and medical aesthetics, offering personalised treatments to support healthy, confident skin.</strong></p>
+ <p>Dr Jo is a highly experienced medical doctor with over <strong>25 years' experience as a GP</strong>, having qualified from <strong>Liverpool University</strong>. Since 2012, she has specialised in <strong>medical aesthetics</strong>, developing a strong passion for skin health and helping people feel more confident in their own skin.</p>
+ <p>Jo works with a wide range of skin concerns, from active acne to the visible signs of ageing, and takes a considered, personalised approach to treatment. She focuses on recommending the most appropriate options for each individual, supporting healthy, natural-looking results.</p>
+ <p>She completed her aesthetics training with <strong>Professor Bob Khanna</strong> over 12 years ago and went on to open her own aesthetics clinic, <strong>Cosmetic Skin Care</strong>, in 2012. In 2019, she also founded <strong>The Skyn Gym</strong>, a dedicated skin clinic. Jo now runs both clinics alongside <strong>Nurse Lucy</strong>, an independent nurse prescriber who has worked closely with her for over five years.</p>
+ <p>Dr Jo's work has been recognised with multiple awards from the <strong>International Academy of Advanced Facial Aesthetics (IAAFA)</strong> — most recently Best Patient Journey (2023) and Highly Commended for Best Mid-Face Rejuvenation, with previous awards including Best Full Face Sculpting (2022) and Best Lip Sculpting (2017).</p>
+ <p>Together with Lucy, she offers a range of treatments including <strong>chemical peels, advanced facials, microneedling and anti-wrinkle injections</strong>, treating all skin types and working with both men and women. They use and stock leading medical skincare brands, including <strong>AlumierMD</strong> and <strong>Obagi</strong>.</p>
+ <p><a href="https://the-skyn-gym.com/" target="_blank" rel="noopener">the-skyn-gym.com</a> · 07905 939076 · <a href="mailto:info@the-skyn-gym.com">info@the-skyn-gym.com</a></p>`},
+
+{slug:"danielle-smitham", name:"Danielle Smitham", role:"Sound Therapist · Resonate8",
+ photo:"24902.jpeg",
+ book:BOOK, treatment:"sound-therapy",
+ offers:"1:1 sound therapy sessions · group sound experiences · chakra balancing, energetic realignment and aura work using sound",
+ bio:`
+ <p>Danielle lived and worked in Western Australia for over 10 years before recently returning to the UK to settle in Cumbria with her family.</p>
+ <p>A certified sound therapist through Kyela Sound Therapy and registered with IICT, Danielle is the founder of <em>Resonate8</em>, where she ran a successful sound therapy and occupational therapy practice in Australia. Alongside offering 1:1 therapeutic sessions and immersive group sound experiences, she also supported the training of future practitioners through the Australian College of Sound Therapy.</p>
+ <p>Her work focuses on creating deeply restorative spaces where sound frequencies support relaxation, nervous system regulation and energetic balance. Danielle works intuitively with a wide range of instruments, including therapy-grade Himalayan singing bowls, solfeggio pipes, tuning forks, crystal chalices and symphonic gongs, creating layered sound journeys tailored to each individual.</p>
+ <p>Danielle has delivered sessions in clinics, community settings and clients' homes, and facilitated group experiences for community organisations, corporate teams, carers, wellness events, schools, women's festivals and wellness circles.</p>
+ <p>Alongside her sound therapy practice, Danielle brings more than 20 years of experience as an <strong>Occupational Therapist</strong>, supporting adults and children with complex mental health needs and disabilities. This depth of experience shapes her grounded, compassionate and intuitive approach.</p>
+ <p>In 1:1 sessions, clients are welcomed into a calm, supportive environment where they can fully relax and be immersed in sound. Sessions include a gentle consultation, therapeutic sound work using a variety of instruments, and time afterwards for reflection and integration. Depending on individual needs, Danielle may also incorporate chakra balancing, energetic realignment and aura work using sound.</p>
+ <p><em>Qualifications:</em> Advanced Diploma — Certified Sound Practitioners (Kyela), Australian College of Sound Therapy · BSc (Hons) Occupational Therapy, University of Exeter · Postgraduate Cert/Masters level in Child and Adolescent Mental Health (UWE) · Yin Yoga and Meditation Training, Spanda Yoga School, Fremantle WA.</p>`},
+
+{slug:"zoe-ayres", name:"Zoe Ayres", role:"Musculoskeletal Physiotherapist · Low Level Laser Therapy",
+ photo:"PHOTO-2026-05-30-11-22-40.jpg",
+ book:BOOK, treatment:"low-level-laser-therapy",
+ offers:"Musculoskeletal physiotherapy · low level laser therapy",
+ bio:`
+ <p>Zoe is a musculoskeletal physiotherapist, providing tailored assessment and treatment for a wide range of musculoskeletal conditions. She combines hands-on therapy, rehabilitation and a whole-body approach to help you move better, feel stronger and stay pain-free. In the initial appointment she will review your pain and the impact it is having on your life, and collaborate with you to develop a treatment plan that works for you and your needs, building on this as the appointments progress.</p>
+ <p>Zoe became a physiotherapist following her own experience with injury, which gives her a greater understanding of the challenges, frustrations and uncertainties that can come with pain and recovery. She will listen to your concerns and adapt your treatment plan to support what matters most to you, while working alongside the incredible team of specialists at The Health Barn.</p>
+ <p>She has been working with Hazel to learn more about Erchonia <a href="#/treatments/low-level-laser-therapy">low level lasers</a> and how these enhance the body's processes — looking at how they reduce inflammation, accelerate tissue healing, and support overall wellbeing as part of a comprehensive treatment approach, or as an individual treatment.</p>
+ <p>Outside of work Zoe enjoys a range of hobbies including horse riding, trampolining, hiking and cycling. As someone who enjoys a busy lifestyle she understands how frustrating it can be when an injury limits this — and believes everyone would benefit from short treatments to feel and perform their best.</p>`},
+
+{slug:"frances-kidd", name:"Frances Kidd", role:"Holistic Therapist",
+ photo:"att.hp_ZOJpei0TZOy7mwBW8U2abigGSo5c5ks7mzwCT1Fc.jpeg",
+ book:BOOK+"#/staff_member/30/bio",
+ offers:"Tailored, trauma-aware massage for deep rest and grounding",
+ bio:`
+ <p><strong>If you're used to holding emotional tension for yourself and others, pushing through pain and coping with exhaustion, this space is for you.</strong></p>
+ <p>Frances offers tailored massage designed to help women feel more settled and grounded, supporting a gentle shift from being on guard into rest.</p>
+ <p>Her approach recognises the complexity of personal experience and is guided by an awareness of the impact of trauma. Frances offers a meditative, flowing massage that reminds the body what it feels like to be supported, creating space for true relaxation.</p>
+ <p>Often there is a turning point during massage when a breath deepens naturally, or a muscle that has been holding on finally lets go. Soft, steady pressure can help the body feel safe enough to release the subconscious tension it has been carrying.</p>
+ <p>If you're looking to reset, relax and feel more at ease in yourself, you're warmly invited to get in touch.</p>
+ <p><em>Training and qualifications:</em> HND Level 5 Diploma in Health and Holistic Therapy · Level 4 ISVA Diploma — The Survivors Trust · Level 3 Diploma in Counselling Studies · Practitioner Diploma — Academy of Acupressure Massage · Simple Lymphatic Drainage, Kendal Lymphology Centre · Member of The Complementary Medical Association · Fully insured to practice.</p>`},
+
+{slug:"christine-hagon", name:"Christine Hagon", role:"Chiropractor",
+ photo:"WhatsApp-Image-2021-06-28-at-10.54.06.jpeg",
+ book:BOOK, treatment:"chiropractic-care",
+ offers:"Chiropractic care · massage · dry needling",
+ bio:`
+ <p>Christine offers <a href="#/treatments/chiropractic-care">chiropractic care</a> at The Health Barn, using the gentle McTimoney method along with other techniques such as massage and dry needling.</p>
+ <p><em>Full bio to follow.</em></p>`},
+
+{slug:"ann-taylor", name:"Ann Taylor", role:"Receptionist",
+ book:"tel:01931712300",
+ offers:"Your first point of contact — bookings, guidance and a warm welcome",
+ bio:`
+ <p><strong>Ann</strong> is the welcoming face and friendly voice at <strong>The Health Barn</strong>. As our receptionist, she is often the first point of contact, greeting clients in person and supporting bookings by phone. With a strong understanding of our therapists and how they work, Ann is able to guide clients towards the most suitable treatments to meet their individual needs.</p>
+ <p>Ann's background is rooted in the outdoor pursuits world, where her own relationship with complementary therapies began as a client. She also brings many years of experience in <strong>personal and management development training</strong>, supporting people through learning and growth in a professional setting.</p>
+ <p>Ann joined the team in <strong>June 2017</strong> at the Centre for Remedial Massage and Chiropractic in Penrith, and moved with Ceris to <strong>The Health Barn</strong> when it opened in <strong>October 2018</strong>. Her knowledge, warmth and calm presence make her an invaluable member of the team, and we are very fortunate to work alongside her.</p>`}
+];
+
+/* ---------------- Price list (page dated 1 January 2026 — canonical) -------- */
+const PRICES = {
+ regular:[
+  ["Chiropractic and Bodywork","Your treatment will be a bespoke blend of therapies unless you specifically ask for a particular one: McTimoney Chiropractic, soft tissue release, dry needling, muscle testing, myofascial release, deep tissue massage.",[["Initial consultation","£65"],["Follow-up","£55"]]],
+  ["Christine Jackson — Clinical Reflexology","Other options under Pamper Sessions below.",[["Initial appointment with full consultation (90 min)","£60"],["Subsequent (45 min)","£50"],["Reflexology Lymphatic Drainage — initial (90 min)","£65"],["Reflexology Lymphatic Drainage — subsequent (45 min)","£55"],["Bespoke Advanced Reflexology (75 min)","£80"]]],
+  ["Trig Point Massage — Rachael Shreeve","Bespoke blend of in-/direct fascia release, sport and orthopaedic massage, manual lymphatic drainage, trigger point therapy, hot stones, Indian head massage, fascia facial, TMJ (for jaw and face pain) and oncology massage. Also 1-to-1 Yin Yoga tuition (contact for prices).",[["First session with full consultation","£60"],["Per session following","£55"]]],
+  ["Low Level Laser Therapy","",[["Initial consultation (up to 30 min incl. LLLT treatment)","£65"],["Follow-up 15 min","£25"],["Follow-up 30 min","£45"]]],
+  ["The Healing Tree — Hayley McCaffrey","",[["Full body massage 60 min","£60"],["Full body massage 90 min","£100"],["Deep tissue 45 min","£50"],["Deep tissue 60 min","£60"],["Pregnancy massage 75 min","£70"],["Back, neck & shoulder 60 min","£60"],["Indian head massage 60 min","£55"],["Chakra balancing 70 min","£70"],["Reflexology — initial","£60"],["Reflexology — follow-up","£50"]]],
+  ["AD Sports Massage — Alex Duckitt","",[["Sports massage 45 min","£50"],["Sports massage 60 min","£55"],["Sports massage with dry needling 45 min","£55"],["Full body massage 60 min","£60"]]],
+  ["Access Bars","A simple technique of gently touching 32 points on your head, each representing different areas of life.",[["Initial consultation","£60"],["Follow-up","£50"]]],
+  ["Float Therapy","Allow 90 minutes — 10 min briefing, 5 min pre-shower, 60 min float & 15 min post-shower & relax.",[["Per session","£50"],["3 Float Package (same person, within 3 months)","£135"]]]
+ ],
+ pamper:[
+  ["Head & Face",[["Holistic face massage with Chris — 45 min","£55"],["Holistic face massage with Chris — 1 hr","£70"],["Holistic face massage with Chris — 90 min","£85"],["Holistic facial with Hayley — 45 min","£48"],["Holistic facial with Hayley — 1 hr","£70"],["Access Energetic Facelift™ with Chris — 1 hr","£50"],["Facial reflexology with Chris — 1 hr","£70"],["Indian head massage with Clare — 1 hr","£50"],["Hopi ear candles with Clare","£45"]]],
+  ["Body",[["Aromatherapy massage (pre-blended) — back/neck/shoulders or lower back & legs, 75 min","£90"],["Aromatherapy massage — full body, 90 min","£115"],["Bespoke aromatherapy treatment massage with Conchita — initial consultation & treatment","£75"],["Bespoke aromatherapy — subsequent 60 min","£60"],["Bespoke aromatherapy — subsequent 30 min","£48"],["Holistic or Swedish massage — back/neck/shoulders or back/legs/feet, 1 hr","£80"],["Holistic or Swedish massage — full body, 90 min","£100"],["Hot stone massage — back/neck/shoulders or lower back & legs, 1 hr","£90"],["Hot stone massage — full body, 90 min","£115"],["Thai bamboo massage — full body, 90 min","£115"],["Intuitive elemental massage (unique to Clare) — 1 hr","£65"],["Fusion — special blended 1 hr with Clare","£65"],["Moroccan sacred candle massage — back/neck/shoulders, 1 hr","£80"],["Chinese fire cupping — 1 hr","£65"],["Floatation therapy — up to 1 hr","£50"],["Floatation therapy — special offer 3 floats","£135"]]],
+  ["Feet",[["Bespoke advanced reflexology with Chris — 75 min","£80"],["Luxury reflexology — 2 hrs","£100"],["Reiki reflexology with Chris — 75 min","£90"]]],
+  ["Energy",[["Usui Reiki — 1 hr","£65"],["Angelic Reiki — 1 hr","£65"],["Kundalini Reiki — 1 hr","£65"],["Chakra balancing — 1 hr without reading","£70"],["Chakra balancing — 75 min with reading","£95"],["Dragon Breathing with Clare — 1 hr","£50"],["Flow (unique session with Clare) — 1 hr","£50"]]]
+ ],
+ packages:[
+  ["Reflexology & Float","allow 3 hrs","£155"],
+  ["Float & Kundalini Reiki","allow 3 hrs","£155"],
+  ["Hot Stones & Facial Massage","allow 2½ hrs","£155"],
+  ["The Ultimate Escape","allow 3 hrs","£185"],
+  ["The Health Barn Signature","allow 4 hrs","£225"]
+ ]
+};
+
+/* ---------------- Gift vouchers ---------------- */
+const VOUCHERS = [
+ ["Pamper Package Gift Voucher — Reflexology & Float","£150"],
+ ["Pamper Package Gift Voucher — Float & Kundalini Reiki","£155"],
+ ["Pamper Package Gift Voucher — Hot Stone / Warm Bamboo & Facial Massage","£155"],
+ ["Pamper Package Gift Voucher — The Ultimate Escape","£185"],
+ ["Pamper Package Gift Voucher — The Health Barn Signature","£225"],
+ ["Floatation Therapy","£50"],
+ ["3 Floatation Therapy Sessions","£135"],
+ ["£25 Gift Voucher","£25"],["£50 Gift Voucher","£50"],["£75 Gift Voucher","£75"],
+ ["£100 Gift Voucher","£100"],["£150 Gift Voucher","£150"]
+];
+
+/* ---------------- Classes in The Loft ---------------- */
+const CLASSES = [
+ ["Cocoon Aerial Yoga","Emily Hoyle","Monday evenings 6.15–7.15pm · Wednesday lunchtimes 12.30–1.30pm · Friday evenings 6–8pm","mailto:nourishyoga1@gmail.com","nourishyogauk.com/calendar","https://nourishyogauk.com/calendar/"],
+ ["Aerial Pilates","Sarah Newby","Saturdays 9.30am & 11am","mailto:sarah@beyondfitnesswithsarah.com","beyondfitnesswithsarah.com · 07989 744557","https://www.beyondfitnesswithsarah.com/rainbow-pilates.html"],
+ ["Reiki Healing Workshops","Hayley McCaffrey","Tuesday evenings at 7pm — whether you are Level 1 or Level 2 trained, or new to Reiki and want to learn more, all are welcome. £10pp. Book by messaging Hayley on 07521 386822.","tel:07521386822","07521 386822",""],
+ ["Yin Yoga","Rachael Shreeve","Thursday lunchtimes 1.30–3pm — a blend of self-massage, small movements to re-educate body/brain coordination, and lovely melting stretches. Suitable for all.","mailto:trigpointmassage@gmail.com","trigpointmassage.weebly.com","https://trigpointmassage.weebly.com/yin-yoga.html"],
+ ["Mum & Baby Yoga","Emily Hoyle (Nourish Yoga)","Monday mornings 9.45–11am","mailto:nourishyoga1@gmail.com","nourishyogauk.com","https://nourishyogauk.com/"],
+ ["Pregnancy Yoga","Emily Hoyle (Nourish Yoga)","Wednesday evenings 6.30–8pm","mailto:nourishyoga1@gmail.com","nourishyogauk.com","https://nourishyogauk.com/"],
+ ["Yoga in Askham","Flo Lamela","See Flo's website for current schedule","","yogawithflo.com","https://www.yogawithflo.com/yoga-in-askham"]
+];
+
+/* =====================================================================
+   PAGE TEMPLATES
+   ===================================================================== */
+const photoFig = (t,cls)=> t.photo
+  ? `<figure class="photo ${cls||'photo--wide'}"><img src="${img(t.photo)}" alt="${t.name}" loading="lazy"></figure>`
+  : "";
+
+function pageHome(){
+  const featured = ["floatation-therapy","chiropractic-care","reflexology","holistic-and-pamper-sessions","breath-coaching","trig-point-massage"]
+    .map(s=>TREATMENTS.find(t=>t.slug===s));
+  const tick = "Chiropractic 〰️ Low Level Laser 〰️ Reflexology 〰️ Massage 〰️ Floatation 〰️ Reiki 〰️ Sound Therapy 〰️ Breathwork 〰️ ";
+  return `
+  <section class="hero">
+    <figure class="hero-bg">
+      <img src="${img('Askham-Balloon.jpg',2500)}" alt="The view over Askham: fields and woodland below the Pennine fells, with a red hot air balloon drifting above the Lowther valley">
+    </figure>
+    <div class="breath" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap"><div class="hero-inner">
+      <span class="eyebrow">Askham · Penrith · Lake District National Park</span>
+      <h1>Welcome to The Health&nbsp;Barn</h1>
+      <p class="lede" style="margin-top:1.4rem">A peaceful wellbeing space on the edge of the Lake District, where care is unhurried, personal and thoughtfully delivered.</p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href="${BOOK}" target="_blank" rel="noopener">Check availability &amp; book online ↗</a>
+        <a class="btn btn--ghost" href="#/treatments">Explore our treatments</a>
+      </div>
+    </div></div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>${tick}</span><span>${tick}</span></div></div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid g2" style="align-items:center">
+        <div>
+          <span class="eyebrow">The Barn</span>
+          <h2>A place to restore balance.</h2>
+          <p class="lede" style="margin-bottom:1.1rem">At The Health Barn, experienced practitioners work together to support your health, balance and wellbeing. Whether you're seeking relief from discomfort, ongoing support, or simply time to slow down and restore, our calm and welcoming environment offers space to pause, breathe and feel cared for.</p>
+          <p style="color:var(--ink-soft);max-width:36em">From hands-on therapies and clinical care to restorative treatments and classes, everything we offer is guided by a holistic approach — supporting body, mind and nervous system as a whole. With private parking, full wheelchair access and a thoughtfully designed, tranquil environment, your comfort and ease are always at the heart of what we do.</p>
+          <div class="btn-row"><a class="btn btn--ghost" href="#/our-story">Our story</a><a class="btn btn--ghost" href="#/contact">Plan your visit</a></div>
+        </div>
+        <figure class="photo photo--tall"><img src="${img('IMG_1101.jpeg')}" alt="Inside The Health Barn" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap">
+      <span class="eyebrow">Treatments</span>
+      <h2 style="max-width:16em">Carefully chosen to support wellbeing and deep relaxation.</h2>
+      <p class="lede" style="margin-bottom:2rem">Each session is tailored to you, allowing time, care and attention to what your body needs in that moment. Whether you're visiting for chiropractic care, massage, reflexology, skin treatments or floatation therapy, you'll find a gentle, professional approach rooted in experience and compassion.</p>
+      <div class="grid g3">
+        ${featured.map(t=>`
+          <a class="card" href="#/treatments/${t.slug}">
+            <span class="tag${t.tarn?' tag--tarn':''}">${t.tarn?'Only one in Cumbria':t.group}</span>
+            <h3>${t.name}</h3><p>${t.blurb}</p>
+            <span class="go">Read more →</span>
+          </a>`).join("")}
+      </div>
+      <div class="btn-row"><a class="btn btn--solid" href="#/treatments">See all treatments</a><a class="btn btn--ghost" href="#/price-list">Price list</a></div>
+    </div>
+  </section>
+
+  <section class="section dark" style="position:relative;overflow:hidden">
+    <div class="wrap">
+      <div class="grid g2" style="align-items:center">
+        <figure class="photo photo--tall"><img src="${img('9EB11453-775D-4482-9F2A-2F479EFD2928.JPG')}" alt="The Health Barn floatation tank" loading="lazy"></figure>
+        <div>
+          <span class="eyebrow">Floatation Therapy</span>
+          <h2>Deep rest, effortless relaxation.</h2>
+          <p class="lede">Floating offers a unique opportunity to completely switch off, allowing both body and mind to unwind in a quiet, weightless environment. Often chosen for its deeply calming effects, floatation can support muscular relaxation, ease tension and encourage a sense of physical, emotional and mental balance — and many find it helps restore better sleep.</p>
+          <div class="btn-row">
+            <a class="btn btn--tarn" href="#/treatments/floatation-therapy">Explore floatation therapy</a>
+            <a class="btn btn--ghost" href="${BOOK}#/discipline/8" target="_blank" rel="noopener">Book a float ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid g2" style="align-items:center">
+        <div>
+          <span class="eyebrow">Holistic &amp; Pamper Sessions</span>
+          <h2>Time just for you.</h2>
+          <p class="lede" style="margin-bottom:1rem">Step into a space designed for deep rest, gentle care and quiet restoration. Each treatment is thoughtfully tailored, taking a truly holistic approach that considers the whole person — body, mind and emotions.</p>
+          <p style="color:var(--ink-soft);max-width:36em">Our pamper packages allow extra time for both treatment and unhurried rest, with a little gift included as a thoughtful finishing touch. If you'd like something more personal, we're always happy to create a bespoke package tailored especially to you.</p>
+          <div class="btn-row">
+            <a class="btn btn--ghost" href="#/treatments/holistic-and-pamper-sessions">View our therapies</a>
+            <a class="btn btn--ghost" href="#/treatments/pamper-packages">Explore pamper packages</a>
+          </div>
+        </div>
+        <figure class="photo photo--tall"><img src="${img('Pamper.jpeg')}" alt="Pamper session at The Health Barn" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--stone section--tight">
+    <div class="wrap" style="text-align:center">
+      <span class="eyebrow">The People</span>
+      <h2>Experienced practitioners. One&nbsp;roof.</h2>
+      <p class="lede" style="margin:0 auto 2rem">Independent specialists who chose to work side by side — so your care can be joined-up, not siloed.</p>
+      <a class="btn btn--solid" href="#/practitioners">Meet the team</a>
+    </div>
+  </section>
+
+  <section class="section range" style="padding-bottom:clamp(9rem,20vw,15rem)">
+    <div class="wrap" style="text-align:center;max-width:720px">
+      <span class="eyebrow">Begin your wellbeing journey</span>
+      <p class="lede" style="margin:0 auto">Explore our treatments, discover our classes, or book your time to unwind — we're here to help you find what feels right for you. Not sure what to book? <a href="#/contact">Get in touch</a> — we're happy to help.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--solid" href="${BOOK}#/list" target="_blank" rel="noopener">Book online ↗</a>
+        <a class="btn btn--ghost" href="#/gift-vouchers">Gift vouchers</a>
+      </div>
+    </div>
+  </section>`;
+}
+
+function pageTreatments(){
+  const groups = [...new Set(TREATMENTS.map(t=>t.group))];
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Treatments</span>
+    <h1>Every treatment under the&nbsp;roof.</h1>
+    <p class="lede" style="margin-top:1.2rem">Every treatment begins with a consultation and is tailored to you — and many pair beautifully as part of a longer session. See the <a href="#/price-list">full price list</a>.</p>
+  </div></header>
+  <section class="section" style="padding-top:0"><div class="wrap">
+    ${groups.map(g=>`
+      <div style="margin-top:3.5rem">
+        <h2 class="eyebrow">${g}</h2>
+        ${TREATMENTS.filter(t=>t.group===g).map(t=>`
+          <a class="index-row" href="#/treatments/${t.slug}">
+            <div><h3>${t.name}</h3><p style="color:var(--ink-soft);font-size:.95rem;max-width:36em">${t.blurb}</p></div>
+            <div class="meta">${t.price}</div></a>`).join("")}
+      </div>`).join("")}
+  </div></section>`;
+}
+
+function pageTreatmentDetail(slug){
+  const t = TREATMENTS.find(x=>x.slug===slug);
+  if(!t) return pageTreatments();
+  const who = (t.who||[]).map(s=>TEAM.find(m=>m.slug===s)).filter(Boolean);
+  const external = (t.book||BOOK).startsWith("http");
+  const accHTML = t.accordions ? `
+    <div style="margin-top:2.5rem">
+    ${HOLISTIC_MENU.map(sec=>`
+      <details class="acc"><summary>${sec.title}</summary><div class="acc-body">
+        ${sec.items.map(i=>`<div class="price-row"><div><strong>${i[0]}</strong><p style="margin:.3em 0 0">${i[1]}</p></div><div class="amount" style="font-size:.95rem;max-width:12em">${i[2]}</div></div>`).join("")}
+      </div></details>`).join("")}
+    <p class="price-note">Want to treat yourself to a longer session? Have a look at our <a href="#/treatments/pamper-packages">Pamper Packages</a>.</p>
+    </div>` : "";
+  return `
+  <header class="page-head${t.tarn?' dark':''}"><div class="wrap">
+    <a class="crumb" href="#/treatments">← All treatments</a>
+    <span class="eyebrow">${t.group}</span>
+    <h1 style="max-width:14em">${t.name}</h1>
+  </div></header>
+  <section class="section" style="padding-top:2rem"><div class="wrap">
+    <div class="detail-grid">
+      <div>
+        <h2 class="sr-only">About ${t.name}</h2>
+        ${photoFig(t)}
+        <div class="prose" style="margin-top:${t.photo?'2.2rem':'0'}">${t.detail}</div>
+        ${accHTML}
+      </div>
+      <aside class="aside">
+        <dl>
+          <dt>Price</dt><dd>${t.price}</dd>
+          <dt>Session</dt><dd>${t.duration}</dd>
+          ${who.length?`<dt>With</dt><dd>${who.map(m=>`<a href="#/practitioners/${m.slug}">${m.name}</a>`).join(" · ")}</dd>`:""}
+        </dl>
+        <div class="btn-row">${external
+          ? `<a class="btn ${t.tarn?'btn--tarn':'btn--solid'}" href="${t.book||BOOK}" target="_blank" rel="noopener">Book this treatment ↗</a>`
+          : `<a class="btn btn--solid" href="tel:01931712300">Call to arrange</a>`}</div>
+        <p class="book-note">${external
+          ? `Opens JaneApp, our secure online booking, in a new tab — or call <a href="tel:01931712300">01931 712 300</a>.`
+          : `Or email <a href="mailto:info@thehealthbarn.co.uk">info@thehealthbarn.co.uk</a> and we'll arrange it with you.`}</p>
+        <div class="btn-row" style="margin-top:.8rem"><a class="btn btn--ghost" href="#/price-list">Full price list</a></div>
+      </aside>
+    </div>
+  </div></section>
+  <div class="book-bar">
+    <div class="bb-price">${t.price.split(" · ")[0]}<small>${t.name}</small></div>
+    ${external
+      ? `<a class="btn ${t.tarn?'btn--tarn':'btn--solid'}" href="${t.book||BOOK}" target="_blank" rel="noopener">Book ↗</a>`
+      : `<a class="btn btn--solid" href="tel:01931712300">Call to book</a>`}
+  </div>`;
+}
+
+function teamCard(m){
+  const avatar = m.photo
+    ? `<div class="avatar"><img src="${img(m.photo,500)}" alt="${m.name}" loading="lazy"></div>`
+    : `<div class="avatar avatar--initials">${m.name.split(" ").map(w=>w[0]).join("")}</div>`;
+  return `<a class="card" href="#/practitioners/${m.slug}">
+    ${avatar}
+    <h3>${m.name}</h3><p>${m.role}</p>
+    <span class="go">Profile →</span>
+  </a>`;
+}
+
+function pagePractitioners(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Practitioners &amp; Therapists</span>
+    <h1>Independent specialists, working&nbsp;together.</h1>
+    <p class="lede" style="margin-top:1.2rem">Each practitioner at the barn runs their own practice — which means deep specialism, with the joined-up thinking of a team under one roof.</p>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap">
+    <h2 class="sr-only">The team</h2>
+    <div class="grid g3">
+      ${TEAM.map(teamCard).join("")}
+    </div>
+  </div></section>`;
+}
+
+function pagePractitionerDetail(slug){
+  const m = TEAM.find(x=>x.slug===slug);
+  if(!m) return pagePractitioners();
+  const treatment = m.treatment ? TREATMENTS.find(t=>t.slug===m.treatment) : null;
+  return `
+  <header class="page-head"><div class="wrap">
+    <a class="crumb" href="#/practitioners">← All practitioners</a>
+    <span class="eyebrow">${m.role}</span>
+    <h1>${m.name}</h1>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap">
+    <div class="detail-grid">
+      <div class="prose"><h2 class="sr-only">About ${m.name}</h2>${m.bio}</div>
+      <div>
+        ${m.photo?`<figure class="photo photo--tall"><img src="${img(m.photo,750)}" alt="${m.name}" loading="lazy"></figure>`:""}
+        <aside class="aside" style="margin-top:1.2rem">
+          <dl>
+            <dt>Offers</dt><dd style="font-size:.94rem">${m.offers}</dd>
+            ${treatment?`<dt>Treatment page</dt><dd><a href="#/treatments/${treatment.slug}">${treatment.name}</a></dd>`:""}
+          </dl>
+          <div class="btn-row">${(m.book||BOOK).startsWith("http")
+            ? `<a class="btn btn--solid" href="${m.book||BOOK}" target="_blank" rel="noopener">Book with ${m.name.split(" ")[0]} ↗</a>`
+            : `<a class="btn btn--solid" href="${m.book}">Call ${m.name.split(" ")[0]} — 01931 712 300</a>`}</div>
+        </aside>
+      </div>
+    </div>
+  </div></section>`;
+}
+
+function pageLoft(){
+  return `
+  <header class="page-head dark"><div class="wrap">
+    <span class="eyebrow">Upstairs at the barn</span>
+    <h1>The Loft.</h1>
+    <p class="lede" style="margin-top:1.2rem">The Loft is situated in the upper part of the barn and is our space for classes, workshops and a venue to hire. It has its own access and is completely self-contained, with its own toilet and kitchenette area adjacent.</p>
+  </div></header>
+
+  <section class="section"><div class="wrap">
+    <div class="grid g2" style="align-items:center">
+      <figure class="photo photo--wide"><img src="${img('467475286_1145786586879107_5102762194867022075_n.jpg')}" alt="The Loft with colourful aerial yoga hammocks" loading="lazy"><figcaption>The Loft with colourful aerial yoga hammocks</figcaption></figure>
+      <div>
+        <span class="eyebrow">The space</span>
+        <h2>Yoga, aerial yoga, pilates, sound &amp; more.</h2>
+        <p class="lede">Currently the space is used for yoga, aerial yoga, baby yoga, pre-natal classes, pilates, sound therapy events, cacao events, breathwork and workshops.</p>
+        <p style="color:var(--ink-soft)">If you are interested in hiring the space, please contact us via email or give us a call to arrange a viewing.</p>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="mailto:info@thehealthbarn.co.uk">Enquire about hire</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:2rem">
+      <figure class="photo photo--sq"><img src="${img('462580048_1576616116278449_5999811406546286463_n.jpg',750)}" alt="Aerial yoga and aerial pilates in The Loft" loading="lazy"><figcaption>Aerial Yoga &amp; Aerial Pilates are both on offer</figcaption></figure>
+      <figure class="photo photo--sq"><img src="${img('Loft-Evening.jpeg',750)}" alt="The Loft in the evening" loading="lazy"><figcaption>When night falls The Loft takes on a different atmosphere</figcaption></figure>
+      <figure class="photo photo--sq"><img src="${img('Loft-Mandala.jpeg',750)}" alt="The Loft mandala" loading="lazy"><figcaption>The Loft Mandala — painted by hand by Ceris</figcaption></figure>
+    </div>
+  </div></section>
+
+  <section class="section section--stone" id="classes"><div class="wrap">
+    <span class="eyebrow">Regular classes</span>
+    <h2>Classes in The Loft.</h2>
+    <p class="lede" style="margin-bottom:2rem"><strong>Please contact the teachers directly</strong> for more information or to book one of the regular classes listed below.</p>
+    <div class="grid g2">
+      ${CLASSES.map(c=>`
+        <div class="card">
+          <span class="tag">${c[1]}</span>
+          <h3>${c[0]}</h3>
+          <p>${c[2]}</p>
+          <span class="go">${c[3]?`<a href="${c[3]}">${c[4]}</a>`:c[4]}${c[5]?` · <a href="${c[5]}" target="_blank" rel="noopener">website ↗</a>`:""}</span>
+        </div>`).join("")}
+    </div>
+  </div></section>
+
+  <section class="section" id="events"><div class="wrap">
+    <span class="eyebrow">Events &amp; workshops</span>
+    <h2>What's on.</h2>
+    <p class="lede" style="margin-bottom:2rem">One-off gatherings, training days and special sessions throughout the year — recent highlights below. New events are announced on <a href="https://www.instagram.com/the_health_barn" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.facebook.com/thehealthbarninaskham" target="_blank" rel="noopener">Facebook</a>, or sign up to the newsletter at reception.</p>
+    <div class="grid g3">
+      <div class="card"><span class="tag">Training weekend</span><h3>Reiki Level 2 — Deepen Your Healing Journey</h3>
+        <p>A two-day course with Hayley for those who have completed Level 1: the three sacred Reiki symbols, distance healing techniques, tools for mental and emotional balance, and the professional skills to work with clients. Contact Hayley on 07521 386822 or hayley.mccaffrey@gmail.com.</p></div>
+      <div class="card"><span class="tag">Seasonal celebration</span><h3>Fire Walks &amp; Solstice Gatherings</h3>
+        <p>Seasonal evenings of transformation, joy and celebration with Clare's CHAT — fire walking, equinox and solstice gatherings. To hear about the next one, contact Clare: clarescrystals@gmail.com · 07585 898841 · @clareschat.</p></div>
+      <div class="card"><span class="tag">Sound & movement</span><h3>Sound Healing, Aerial Yoga Restore &amp; more</h3>
+        <p>Regular one-off sessions in The Loft — sound healing evenings, aerial yoga relax &amp; restore, drumming circles, mother circles and menopause workshops. Follow us on social media for dates.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section section--stone" id="training"><div class="wrap">
+    <div class="grid g2" style="align-items:center">
+      <div>
+        <span class="eyebrow">Professional training</span>
+        <h2>Reflexology Practitioner Diploma.</h2>
+        <p class="lede" style="margin-bottom:1rem">Are you interested in becoming a clinical reflexologist? Chris is enrolling for her Reflexology Practitioner Diploma.</p>
+        <p style="color:var(--ink-soft)">The course is accredited by Professional Reflexology, a leading membership body, is compliant with the Complementary and Natural Healthcare Council (CNHC) core curriculum, and incorporates the National Occupational Standards (NOS) for Reflexology. The course guarantees 100+ hours of face-to-face tuition. All study days take place in The Loft, which has easy parking and full disability access, running 9am–5pm with an hour for lunch.</p>
+        <div class="btn-row">
+          <a class="btn btn--solid" href="https://www.christinejacksonreflexology.co.uk" target="_blank" rel="noopener">Course details ↗</a>
+          <a class="btn btn--ghost" href="mailto:christine@thehealthbarn.co.uk">Email Christine</a>
+        </div>
+      </div>
+      <figure class="photo photo--wide"><img src="${img('The-loft-finished.jpeg')}" alt="The Loft set up for training" loading="lazy"></figure>
+    </div>
+  </div></section>`;
+}
+
+function pagePrices(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Price list</span>
+    <h1>Treatments &amp; prices.</h1>
+    <p class="lede" style="margin-top:1.2rem">Prices updated 1 January 2026. First sessions are longer and include a full consultation. Many treatments can be combined — ask us to put a session together for you.</p>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap" style="max-width:900px">
+    <h2 class="eyebrow">Regular treatments</h2>
+    ${PRICES.regular.map(sec=>`
+      <details class="acc"><summary>${sec[0]}</summary><div class="acc-body">
+        ${sec[1]?`<p>${sec[1]}</p>`:""}
+        ${sec[2].map(r=>`<div class="price-row"><div>${r[0]}</div><div class="amount">${r[1]}</div></div>`).join("")}
+      </div></details>`).join("")}
+
+    <h2 class="eyebrow" style="margin-top:3rem">Pamper sessions</h2>
+    ${PRICES.pamper.map(sec=>`
+      <details class="acc"><summary>${sec[0]}</summary><div class="acc-body">
+        ${sec[1].map(r=>`<div class="price-row"><div>${r[0]}</div><div class="amount">${r[1]}</div></div>`).join("")}
+      </div></details>`).join("")}
+
+    <h2 class="eyebrow" style="margin-top:3rem">Pamper packages</h2>
+    ${PRICES.packages.map(p=>`<div class="price-row"><div><h3 style="font-size:1.1rem">${p[0]}</h3><p style="color:var(--ink-soft);font-size:.9rem">${p[1]}</p></div><div class="amount">${p[2]}</div></div>`).join("")}
+    <p class="price-note">Or contact us to discuss further options — many of our sessions can be offered together to meet your needs. For pamper sessions and packages, a 50% non-refundable deposit confirms your booking.</p>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="${BOOK}#/team" target="_blank" rel="noopener">Book online ↗</a>
+      <a class="btn btn--ghost" href="tel:01931712300">Call 01931 712 300</a>
+      <a class="btn btn--ghost" href="mailto:info@thehealthbarn.co.uk">Email us</a>
+    </div>
+  </div></section>`;
+}
+
+function pageVouchers(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Gift Vouchers</span>
+    <h1>Give someone an hour&nbsp;off.</h1>
+    <p class="lede" style="margin-top:1.2rem">Vouchers are available for any treatment, any pamper package, or any amount — a float for the person who never stops, a massage for the one who's earned it.</p>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap">
+    <h2 class="eyebrow">Experience vouchers</h2>
+    <div class="grid g3">
+      ${VOUCHERS.slice(0,7).map(v=>`<div class="card"><span class="tag${v[0].includes('Floatation')?' tag--tarn':''}">${v[0].startsWith('Pamper')?'Pamper package':'Floatation'}</span><h3 style="font-size:1.1rem">${v[0].replace('Pamper Package Gift Voucher — ','')}</h3><p style="font-family:var(--display);font-size:1.3rem;color:var(--ink)">${v[1]}</p></div>`).join("")}
+    </div>
+    <h2 class="eyebrow" style="margin-top:3.5rem">Gift amounts</h2>
+    <p class="lede" style="margin-bottom:1.6rem">A voucher towards any treatment. Pick the amount that suits — or ask us for a different figure and we'll make one up for you.</p>
+    <div class="amount-grid">
+      ${VOUCHERS.slice(7).map(v=>`<div class="amount-chip">${v[1]}</div>`).join("")}
+    </div>
+    <div class="prose" style="margin-top:2.5rem;max-width:44em">
+      <h3>The practical bits</h3>
+      <ul>
+        <li>Vouchers are dated and valid for <strong>6 months from the date of issue</strong>.</li>
+        <li>They can't be exchanged for cash; refunds on voucher purchases are made by voucher.</li>
+        <li>We post vouchers within 24 hours of your order.</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:2.5rem;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div style="max-width:38em"><h3>To order</h3><p>Call us on 01931 712 300 or drop us an email with the voucher you'd like — we'll have it in the post within 24 hours, ready to give.</p></div>
+      <div class="btn-row" style="margin:0"><a class="btn btn--solid" href="mailto:info@thehealthbarn.co.uk">Email us</a><a class="btn btn--ghost" href="tel:01931712300">01931 712 300</a></div>
+    </div>
+  </div></section>`;
+}
+
+function pageContact(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Contact &amp; Location</span>
+    <h1>Finding the barn.</h1>
+    <p class="lede" style="margin-top:1.2rem">We are located in the village of Askham, 5 miles south of Penrith, Cumbria — inside the Lake District National Park.</p>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap">
+    <div class="detail-grid">
+      <figure class="photo photo--tall"><img src="${img('106398723_262060371756826_3065735960773418679_n.jpg')}" alt="The Health Barn, Askham" loading="lazy"></figure>
+      <aside class="aside">
+        <dl>
+          <dt>Address</dt><dd>The Health Barn, Askham,<br>Penrith, Cumbria, CA10 2PG</dd>
+          <dt>Directions</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=The+Health+Barn,+Askham,+Penrith+CA10+2PG" target="_blank" rel="noopener">Open in Google Maps ↗</a></dd>
+          <dt>what3words</dt><dd><a href="https://what3words.com/gathering.believer.hazelnuts" target="_blank" rel="noopener">///gathering.believer.hazelnuts</a></dd>
+          <dt>Phone</dt><dd><a href="tel:01931712300">01931 712 300</a></dd>
+          <dt>Email</dt><dd><a href="mailto:info@thehealthbarn.co.uk">info@thehealthbarn.co.uk</a></dd>
+          <dt>Opening hours</dt><dd>Mon–Fri 9am–5pm · Sun 1pm–5pm · Sat closed<br><span style="color:var(--ink-soft);font-size:.9rem">Reception open Mon–Fri 9am–4pm</span></dd>
+          <dt>Booking</dt><dd><a href="${BOOK}" target="_blank" rel="noopener">Book online via JaneApp ↗</a></dd>
+          <dt>Social</dt><dd><a href="https://www.instagram.com/the_health_barn" target="_blank" rel="noopener" style="display:inline">Instagram</a> · <a href="https://www.facebook.com/thehealthbarninaskham" target="_blank" rel="noopener" style="display:inline">Facebook</a></dd>
+        </dl>
+        <div class="btn-row"><a class="btn btn--solid" href="${BOOK}" target="_blank" rel="noopener">Book a treatment ↗</a></div>
+      </aside>
+    </div>
+    <p class="price-note" style="margin-top:2.5rem">If you need any help or guidance, please give us a call or send us an email — reception is open Monday–Friday, 9am–4pm.</p>
+  </div></section>`;
+}
+
+function pageStory(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Our Story</span>
+    <h1>An 18th-century barn, reimagined.</h1>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap">
+    <div class="detail-grid">
+      <div class="prose">
+        <p>The Health Barn began with a shared belief — that truly effective care happens when people are listened to, supported and treated as a whole.</p>
+        <p>Founded by <strong>Ceris Owen, Doctor of Chiropractic</strong>, and <strong>Christine Jackson, BA BSc, Clinical Reflexologist</strong>, The Health Barn grew from two separate practices and a mutual understanding that working together could offer something more meaningful. Through regularly referring clients to one another, they saw first-hand how chiropractic, massage and reflexology could complement each other, creating deeper, longer-lasting benefits when delivered as part of an integrated approach.</p>
+        <p>Ceris began her journey in hands-on therapy through massage and acupuncture before qualifying as a chiropractor, building her practice under the name <em>Eden Bodyworks</em>. Christine trained in Complementary Health and Clinical Reflexology, opening <em>Calico Health &amp; Wellbeing Centre</em> in 2012, where she combined reflexology with flotation therapy to support relaxation and balance. Though their paths began separately, their shared values around care, connection and quality naturally brought them together.</p>
+        <p>In 2018, their vision took physical shape. An 18th-century barn in the heart of Askham — one of the Lake District's most beautiful villages — was transformed into what is now The Health Barn. From the outset, the intention was to preserve the building's character while creating a calm, welcoming and accessible space where people could truly feel at ease.</p>
+        <p>Today, The Health Barn is a place of calm, care and collaboration. A space where experienced practitioners work together to support wellbeing through thoughtful, individualised treatments. Alongside one-to-one therapies, it has grown into a hub for classes, workshops and learning — nurturing not only physical health, but connection, understanding and balance.</p>
+        <p>At its heart, The Health Barn exists to offer time, space and support in a busy world — a place where you can pause, feel listened to, and begin to restore your sense of wellbeing, balance and health.</p>
+      </div>
+      <div>
+        <figure class="photo photo--tall"><img src="${img('IMG_1101.jpeg')}" alt="Inside The Health Barn" loading="lazy"></figure>
+        <figure class="photo photo--wide" style="margin-top:1.2rem"><img src="${img('pamper-room.jpg')}" alt="The pamper room" loading="lazy"></figure>
+      </div>
+    </div>
+  </div></section>`;
+}
+
+function pageUsefulLinks(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Useful links</span>
+    <h1>Trusted people we point&nbsp;to.</h1>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap">
+    <div class="grid g3">
+      <div class="card"><span class="tag">Counselling & EMDR</span>
+        <h3>Kerry Hodgkinson MA, MSc</h3>
+        <p>Kerry provides counselling, psychotherapy and EMDR therapy for clients aged 18 and over, in a friendly, warm and non-judgemental environment with a confidential and professional service. Her aim is to provide a safe and supportive space to explore issues and problems; her belief is that people have the capacity to change, but at times may need assistance to achieve this. Kerry helps people struggling with anxiety, stress, depression, low self-esteem, low self-confidence, phobias, relationship issues, anger, trauma, abuse, PTSD, pain, bereavement, panic and much more.</p>
+        <p>T: 07761 621874 · E: <a href="mailto:support@kerryhodgkinson.co.uk">support@kerryhodgkinson.co.uk</a></p>
+        <span class="go"><a href="https://kerryhodgkinson.co.uk" target="_blank" rel="noopener">kerryhodgkinson.co.uk ↗</a></span></div>
+      <div class="card"><span class="tag">CBT</span>
+        <h3>Caroline Raw</h3>
+        <p>Caroline is an accredited Cognitive Behavioural Therapist. She has worked previously in the NHS supporting people to learn ways to manage emotional difficulties (such as depression, anxiety, panic attacks, PTSD, OCD, low self-esteem, or struggling to move on following a bereavement) and more recently has specialised in supporting people to adapt to long-term health conditions and live valued lives despite the challenges they face (such as fibromyalgia, chronic fatigue, or following injury or illness). Caroline offers a supportive, warm, non-judgemental and compassionate space, working with each person individually using a variety of therapeutic approaches.</p>
+        <p>T: 07495 515343</p>
+        <span class="go"><a href="https://www.counselling-directory.org.uk/counsellors/caroline-raw" target="_blank" rel="noopener">Counselling Directory profile ↗</a></span></div>
+      <div class="card"><span class="tag">Nutrition</span>
+        <h3>Integral Wellness</h3>
+        <p>Nutrition &amp; Health Clinic — Integral Wellness services have been used by a couple of The Health Barn team, so we are happy to direct you to their website. They are a team of registered Nutritional Therapists supporting individuals with personalised food and lifestyle plans.</p>
+        <span class="go"><a href="https://integralwellness.co.uk/contact/" target="_blank" rel="noopener">integralwellness.co.uk ↗</a> · <a href="https://www.instagram.com/natalielouise_integralwellness/" target="_blank" rel="noopener">Instagram ↗</a></span></div>
+    </div>
+  </div></section>`;
+}
+
+function pageTerms(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Terms &amp; Policies</span>
+    <h1>The small print.</h1>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap"><div class="prose" style="max-width:44em">
+    <h3>Cancellation policy</h3>
+    <p>Please allow at least 24 hours prior to your appointment time to cancel. Failure to do this will incur the full charge of the treatment booked.</p>
+    <p>If you are unable to attend and reschedule, you will not incur a charge; however, if this happens on two consecutive occasions the full charge of the treatment will be necessary.</p>
+    <p>We are very busy and tend to have waiting lists — allowing us time to fill any cancellations means someone else can be helped sooner.</p>
+    <p>For any of the pamper sessions or packages, a 50% non-refundable deposit of the total is required to confirm your booking.</p>
+    <h3>Gift vouchers</h3>
+    <p>See the <a href="#/gift-vouchers">gift voucher terms</a>. All gift certificates are dated and expire 6 months from the date of issue, and cannot be exchanged for cash.</p>
+  </div></div></section>`;
+}
+
+function pagePrivacy(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Privacy</span>
+    <h1>Our privacy statement.</h1>
+  </div></header>
+  <section class="section" style="padding-top:1rem"><div class="wrap"><div class="prose" style="max-width:44em">
+    <p>We take the protection of your personal data extremely seriously. Any data collected is only done lawfully and in accordance with the General Data Protection Rules (GDPR) 2018, the Human Rights Act 1998, the Common Law Duty of Confidentiality, and the General Chiropractic Council Code of Practice.</p>
+    <p>We collect personal information about your health in order to provide the best possible treatment. The contract between practitioner and patient is agreed on your request for treatment and the practitioner's agreement to provide care. With your consent you may be contacted regarding your appointments, or to update information specific to you. On occasion you may receive information from us to keep you up to date with what is happening at The Health Barn — you may withdraw this consent at any time.</p>
+    <p>We have a legal obligation to retain your health records for 8 years after your most recent appointment, or until your child's 25th birthday, before being securely destroyed. Your records are stored on paper, in locked filing cabinets, and the barn is always locked outside working hours. We may also store contact information on our office computers; these are password protected and locked away when not in use.</p>
+    <p>We will never share your data with anyone who doesn't need access without your written consent. Practitioners have access to your data so that they are able to provide your treatment; reception staff also have access in order to coordinate appointments. You have the right to see what personal data of yours we hold, and provided the legal minimum period has elapsed, you can also ask us to destroy your records.</p>
+    <p>To help us keep your records accurate and up to date, it is important that you tell us as soon as you (or your child) change address, your contact details change, or of any other relevant changes — this is your responsibility. If you believe any of the personal data we hold on you is inaccurate or incomplete, please contact us directly and any necessary corrections will be made without undue delay.</p>
+    <p>Should your personal data that we control be lost, stolen or otherwise breached, we will contact you without delay. We will give you the contact details of the person dealing with the breach, explain the nature of the breach and the steps being taken to deal with it.</p>
+    <p>If you feel we are mishandling your personal data in any way, you have the right to complain. Complaints should be sent to the Data Controller. If you are still unhappy following a review by the business owners, you can contact the ICO via <a href="https://www.ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+    <p><strong>Data Controller:</strong> Ceris Owen · <strong>Email:</strong> <a href="mailto:info@thehealthbarn.co.uk">info@thehealthbarn.co.uk</a> · <strong>Tel:</strong> 01931 712 300 · <strong>Address:</strong> The Health Barn, Askham, Penrith, Cumbria, CA10 2PG.</p>
+  </div></div></section>`;
+}
+
+function pageNotFound(){
+  return `
+  <header class="page-head"><div class="wrap">
+    <span class="eyebrow">Page not found</span>
+    <h1>That page isn't here.</h1>
+    <p class="lede" style="margin-top:1.2rem">The link may be old or mistyped — nothing lost. Try one of these:</p>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="#/">Home</a>
+      <a class="btn btn--ghost" href="#/treatments">Treatments</a>
+      <a class="btn btn--ghost" href="#/price-list">Price list</a>
+      <a class="btn btn--ghost" href="#/contact">Contact</a>
+    </div>
+  </div></header>`;
+}
+
+/* =====================================================================
+   ROUTER
+   ===================================================================== */
+const routes = {
+  "": [pageHome,"The Health Barn — Complementary Therapies in Askham, Lake District"],
+  "treatments": [pageTreatments,"Treatments — The Health Barn"],
+  "practitioners": [pagePractitioners,"Practitioners & Therapists — The Health Barn"],
+  "the-loft": [pageLoft,"The Loft — Classes, Workshops & Events — The Health Barn"],
+  "price-list": [pagePrices,"Price List — The Health Barn"],
+  "gift-vouchers": [pageVouchers,"Gift Vouchers — The Health Barn"],
+  "contact": [pageContact,"Contact & Location — The Health Barn"],
+  "our-story": [pageStory,"Our Story — The Health Barn"],
+  "useful-links": [pageUsefulLinks,"Useful Links — The Health Barn"],
+  "terms-policies": [pageTerms,"Terms & Policies — The Health Barn"],
+  "privacy": [pagePrivacy,"Privacy Statement — The Health Barn"]
+};
+
+function render(){
+  const hashPath = location.hash.replace(/^#\/?/,"");
+  const [pathPart, anchor] = hashPath.split("#");
+  const path = pathPart.replace(/\/$/,"").split("/");
+  const app = document.getElementById("app");
+  let html, title;
+  if(path[0]==="treatments" && path[1]){
+    const t = TREATMENTS.find(x=>x.slug===path[1]);
+    html = pageTreatmentDetail(path[1]); title = t? `${t.name} — The Health Barn` : "Treatments — The Health Barn";
+  } else if(path[0]==="practitioners" && path[1]){
+    const m = TEAM.find(x=>x.slug===path[1]);
+    html = pagePractitionerDetail(path[1]); title = m? `${m.name} — The Health Barn` : "Practitioners — The Health Barn";
+  } else {
+    const r = routes[path[0]] || [pageNotFound,"Page not found — The Health Barn"];
+    html = r[0](); title = r[1];
+  }
+  app.innerHTML = html;
+  document.title = title;
+  document.body.classList.toggle("has-bookbar", !!app.querySelector(".book-bar"));
+  app.style.animation="none"; void app.offsetWidth; app.style.animation="";
+  requestAnimationFrame(()=>{
+    if(anchor){
+      const el = document.getElementById(anchor);
+      if(el) el.scrollIntoView();
+      else window.scrollTo({top:0,behavior:"instant"});
+    } else {
+      window.scrollTo({top:0,behavior:"instant"});
+    }
+  });
+  setTimeout(()=>{
+    const h1 = app.querySelector("h1");
+    if(h1){ h1.setAttribute("tabindex","-1"); h1.focus({preventScroll:true}); }
+  }, 120);
+  document.querySelectorAll("[data-nav]").forEach(a=>{
+    const active = a.dataset.nav===path[0];
+    a.classList.toggle("active", active);
+    if(active) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+  });
+  closeMenu();
+}
+
+const navLinksEl = document.getElementById("navLinks");
+const menuBtnEl  = document.getElementById("menuBtn");
+function closeMenu(){
+  navLinksEl.classList.remove("open");
+  menuBtnEl.setAttribute("aria-expanded","false");
+}
+menuBtnEl.addEventListener("click", ()=>{
+  const open = navLinksEl.classList.toggle("open");
+  menuBtnEl.setAttribute("aria-expanded", String(open));
+});
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeMenu(); });
+document.addEventListener("click", e=>{
+  if(navLinksEl.classList.contains("open") && !e.target.closest(".nav")) closeMenu();
+});
+document.getElementById("skipLink").addEventListener("click", e=>{
+  e.preventDefault();
+  document.getElementById("app").focus();
+});
+window.addEventListener("hashchange", render);
+render();
+</script>
+</body>
+</html>
