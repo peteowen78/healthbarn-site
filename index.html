@@ -7,6 +7,16 @@
 <title>The Health Barn — Complementary Therapies in Askham, Lake District</title>
 <meta name="description" content="A hub for complementary therapies in Askham, Penrith, Cumbria — chiropractic, reflexology, massage, floatation therapy, breathwork, reiki and more, inside the Lake District National Park.">
 <link rel="icon" type="image/svg+xml" href="LogoElements/HB-Logo-IconCircle.svg">
+<!-- Social preview. publish.sh rewrites these to the review URL; they are
+     written for the production domain so launch needs no change. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Health Barn">
+<meta property="og:title" content="The Health Barn — Complementary Therapies in Askham, Lake District">
+<meta property="og:description" content="A peaceful wellbeing space on the edge of the Lake District. Chiropractic, reflexology, massage, floatation therapy, breathwork and more, in a converted barn in Askham near Penrith.">
+<meta property="og:url" content="https://peteowen78.github.io/healthbarn-site/">
+<meta property="og:image" content="https://peteowen78.github.io/healthbarn-site/assets/img/Askham-Balloon.jpg">
+<meta property="og:image:alt" content="The view over Askham towards the fells, with a hot air balloon above the valley">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
@@ -132,14 +142,27 @@ h3{font-size:1.35rem;font-weight:450;line-height:1.25}
 .hero-inner{position:relative;z-index:2;max-width:640px}
 .hero-bg{position:absolute;inset:0;z-index:0;margin:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
+/* The veil protects the text column only, then clears so the valley actually
+   reads. Desktop: horizontal, holding behind the ~53%-wide text block.
+   Mobile: vertical band behind the text, releasing sky at the top and the
+   fields and dry stone wall at the bottom. */
 .hero-bg::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(100deg,
-    color-mix(in srgb,var(--limewash) 97%,transparent) 0%,
+  background:linear-gradient(96deg,
+    color-mix(in srgb,var(--limewash) 95%,transparent) 0%,
     color-mix(in srgb,var(--limewash) 93%,transparent) 42%,
-    color-mix(in srgb,var(--limewash) 62%,transparent) 72%,
-    color-mix(in srgb,var(--limewash) 34%,transparent) 100%)}
+    color-mix(in srgb,var(--limewash) 92%,transparent) 59%,
+    color-mix(in srgb,var(--limewash) 40%,transparent) 75%,
+    color-mix(in srgb,var(--limewash) 12%,transparent) 88%,
+    color-mix(in srgb,var(--limewash) 4%,transparent) 100%)}
 @media(max-width:760px){
-  .hero-bg::after{background:color-mix(in srgb,var(--limewash) 88%,transparent)}
+  /* text runs 24%-85% of the hero, so the veil holds across that band and
+     only clears above it (sky and fells) and just below it */
+  .hero-bg::after{background:linear-gradient(180deg,
+    color-mix(in srgb,var(--limewash) 38%,transparent) 0%,
+    color-mix(in srgb,var(--limewash) 72%,transparent) 12%,
+    color-mix(in srgb,var(--limewash) 92%,transparent) 22%,
+    color-mix(in srgb,var(--limewash) 93%,transparent) 87%,
+    color-mix(in srgb,var(--limewash) 58%,transparent) 100%)}
 }
 .breath{position:absolute;right:clamp(-160px,-4vw,40px);top:50%;
   transform:translateY(-50%);width:min(56vw,620px);aspect-ratio:1;z-index:1;
@@ -203,6 +226,19 @@ a.card{color:var(--ink)}
   text-transform:uppercase;color:var(--moss);background:color-mix(in srgb,var(--moss) 12%,transparent);
   padding:.28rem .7rem;border-radius:100px;width:max-content}
 .tag--tarn{color:var(--tarn-deep);background:color-mix(in srgb,var(--tarn) 22%,transparent)}
+/* photography at the head of a card — the image carries the card, not the box */
+.card-media{margin:-1.8rem -1.8rem 1.25rem;width:calc(100% + 3.6rem);aspect-ratio:3/2;
+  overflow:hidden;border-radius:18px 18px 0 0;background:var(--stone)}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .7s cubic-bezier(.2,.7,.25,1)}
+a.card:hover .card-media img{transform:scale(1.045)}
+/* practitioner faces, in the site's rounded-rectangle language rather than
+   the usual circular avatar stack */
+.face-row{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem;margin:0 0 2.2rem}
+.face{width:clamp(62px,8vw,84px);aspect-ratio:1;border-radius:14px;overflow:hidden;
+  flex:none;background:var(--limewash);transition:transform .3s cubic-bezier(.2,.7,.25,1)}
+.face img{width:100%;height:100%;object-fit:cover;display:block}
+.face:hover{transform:translateY(-4px)}
 
 /* ---------- photos ---------- */
 .photo{border-radius:18px;overflow:hidden;position:relative;background:var(--stone)}
@@ -452,7 +488,7 @@ const TREATMENTS = [
 
 {slug:"physiotherapy", name:"Physiotherapy & Wellbeing", group:"Clinical care",
  blurb:"Orthopaedic, musculoskeletal and pelvic-health physiotherapy with Rosanna — one of the only Mummy MOT practitioners in Cumbria.",
- price:"See booking · discounted initial appointment if referred in-house", duration:"By consultation",
+ price:"Price on enquiry · reduced first visit if referred in-house", duration:"By consultation",
  book:BOOK+"#/staff_member/5/treatment/13",
  detail:`
  <p>As well as being an orthopaedic and musculoskeletal specialist, Rosanna is a pelvic health expert, and one of the only <strong>Mummy MOT</strong> practitioners in the whole of Cumbria. She believes no woman should have to just get on with the lesser-spoken-about issues, which are all too common and undertreated. This isn't limited to pregnancy and childbirth-related concerns: peri-menopause and menopause can also affect the pelvic floor (bowel, bladder, prolapse, sexual health), the core (stomach, back, hips) or the whole body.</p>
@@ -580,7 +616,7 @@ const TREATMENTS = [
 
 {slug:"craniosacral-therapy", name:"CranioSacral Therapy", group:"Hands-on & holistic",
  blurb:"A gentle but potent light-touch therapy supporting the body's innate ability to balance, restore and heal itself.",
- price:"See booking", duration:"60 min",
+ price:"Price on enquiry", duration:"60 min",
  book:BOOK,
  detail:`
  <p>Craniosacral therapy (CST) is a gentle but potent way of working with the body using a light touch. It supports your body's innate ability to balance, restore and heal itself, as well as helping to reduce stress and build underlying energy. It is suitable for everyone, from newly-born babies to the elderly.</p>
@@ -603,6 +639,7 @@ const TREATMENTS = [
 /* ---------------- Breath, mind & energy ---------------- */
 {slug:"breath-coaching", name:"Oxygen Advantage® Breath Coaching", group:"Breath, mind & energy",
  blurb:"Science-informed breath coaching with Oli Blomfield — for health, focus and performance. Free 15-minute discovery call.",
+ photo:"Oli-breath-coaching.jpg",
  price:"3-session package £135 · initial £60 · follow-up £45", duration:"Initial ~80 min · follow-ups ~50 min",
  who:["oli-blomfield"],
  book:"https://www.onwardsbreath.com/",
@@ -988,7 +1025,7 @@ function pageHome(){
           <p style="color:var(--ink-soft);max-width:36em">From hands-on therapies and clinical care to restorative treatments and classes, everything we offer is guided by a holistic approach — supporting body, mind and nervous system as a whole. With private parking, full wheelchair access and a thoughtfully designed, tranquil environment, your comfort and ease are always at the heart of what we do.</p>
           <div class="btn-row"><a class="btn btn--ghost" href="#/our-story">Our story</a><a class="btn btn--ghost" href="#/contact">Plan your visit</a></div>
         </div>
-        <figure class="photo photo--tall"><img src="${img('IMG_1101.jpeg')}" alt="Inside The Health Barn" loading="lazy"></figure>
+        <figure class="photo photo--tall"><img src="${img('IMG_1101.jpeg')}" alt="Two of the practitioners at The Health Barn" loading="lazy"></figure>
       </div>
     </div>
   </section>
@@ -1001,6 +1038,7 @@ function pageHome(){
       <div class="grid g3">
         ${featured.map(t=>`
           <a class="card" href="#/treatments/${t.slug}">
+            ${t.photo?`<div class="card-media"><img src="${img(t.photo)}" alt="" loading="lazy"></div>`:""}
             <span class="tag${t.tarn?' tag--tarn':''}">${t.tarn?'Only one in Cumbria':t.group}</span>
             <h3>${t.name}</h3><p>${t.blurb}</p>
             <span class="go">Read more →</span>
@@ -1050,6 +1088,12 @@ function pageHome(){
       <span class="eyebrow">The People</span>
       <h2>Experienced practitioners. One&nbsp;roof.</h2>
       <p class="lede" style="margin:0 auto 2rem">Independent specialists who chose to work side by side — so your care can be joined-up, not siloed.</p>
+      <div class="face-row">
+        ${TEAM.filter(m=>m.photo).slice(0,9).map(m=>`
+          <a class="face" href="#/practitioners/${m.slug}" aria-label="${m.name} — ${m.role.split(' · ')[0]}">
+            <img src="${img(m.photo)}" alt="${m.name}" loading="lazy">
+          </a>`).join("")}
+      </div>
       <a class="btn btn--solid" href="#/practitioners">Meet the team</a>
     </div>
   </section>
@@ -1375,7 +1419,7 @@ function pageStory(){
         <p>At its heart, The Health Barn exists to offer time, space and support in a busy world — a place where you can pause, feel listened to, and begin to restore your sense of wellbeing, balance and health.</p>
       </div>
       <div>
-        <figure class="photo photo--tall"><img src="${img('IMG_1101.jpeg')}" alt="Inside The Health Barn" loading="lazy"></figure>
+        <figure class="photo photo--tall"><img src="${img('IMG_1101.jpeg')}" alt="Two of the practitioners at The Health Barn" loading="lazy"></figure>
         <figure class="photo photo--wide" style="margin-top:1.2rem"><img src="${img('pamper-room.jpg')}" alt="The pamper room" loading="lazy"></figure>
       </div>
     </div>
